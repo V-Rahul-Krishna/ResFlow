@@ -1,0 +1,23 @@
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,Arial}
+body{background:#f5f7fb;color:#1f2933}
+.topbar{background:#ffffff;border-bottom:1px solid #d1d5db;padding:20px 30px;display:flex;justify-content:space-between;align-items:center}
+.dashboard{max-width:1200px;margin:auto;padding:40px}
+.priority-card{background:#ffffff;border:1px solid #e5e7eb;border-radius:6px;padding:30px;margin-bottom:40px}
+.priority-card h2{font-size:18px;margin-bottom:15px;color:#111827}
+.priority-info{display:flex;gap:40px;font-size:14px;color:#374151;margin-bottom:12px}
+.priority-note{font-size:13px;color:#64748b}
+.order-section{display:grid;grid-template-columns:repeat(2,1fr);gap:40px}
+.order-card{background:#ffffff;border:1px solid #e5e7eb;border-radius:6px;padding:30px}
+.order-card h3{font-size:16px;margin-bottom:20px;color:#111827}
+.order-card form{display:flex;flex-direction:column}
+.order-card label{font-size:13px;margin-bottom:6px;color:#374151}
+.order-card input,.order-card select{padding:10px;border-radius:4px;border:1px solid #d1d5db;background:#f9fafb;margin-bottom:16px;font-size:14px}
+.order-card input:focus,.order-card select:focus{outline:none;border-color:#2563eb;background:#ffffff}
+.order-card button{padding:12px;border:none;border-radius:4px;background:#2563eb;color:#ffffff;font-size:14px;cursor:pointer;transition:background .2s}
+.order-card button:hover{background:#1d4ed8}
+.footer{text-align:center;padding:20px;font-size:12px;color:#6b7280;border-top:1px solid #d1d5db;background:#ffffff;margin-top:40px}
+
+@media(max-width:900px){
+  .order-section{grid-template-columns:1fr}
+  .priority-info{flex-direction:column;gap:10px}
+}

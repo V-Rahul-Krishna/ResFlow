@@ -1,0 +1,11 @@
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,Arial}
+body{background:#f5f7fb;color:#1f2933}
+.topbar{background:#fff;padding:20px 30px;border-bottom:1px solid #d1d5db;display:flex;justify-content:space-between}
+.dashboard{padding:40px;max-width:1200px;margin:auto}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:25px;margin-bottom:50px}
+.card{background:#fff;border-radius:6px;padding:30px;text-align:center;border:1px solid #e5e7eb}
+.card h3{font-size:14px;color:#64748b}
+.card p{font-size:26px;color:#16a34a;margin-top:8px}
+table{width:100%;border-collapse:collapse;background:#fff}
+th,td{padding:14px;border-bottom:1px solid #e5e7eb;font-size:14px}
+th{background:#f1f5f9}

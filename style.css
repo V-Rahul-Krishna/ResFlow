@@ -7,7 +7,7 @@ header {
   border: 3px solid white;
   margin: 20px;
 
-  color: skyblue;
+  color: rgb(28, 174, 231);
   min-height: 90vh;
   display: flex;
   flex-direction: column;

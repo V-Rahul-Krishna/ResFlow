@@ -1,0 +1,10 @@
+header{
+  padding:30px;
+  border:3px solid white;
+  margin:20px;
+  background-image: url("./home-background/");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+}

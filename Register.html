@@ -1,104 +1,167 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ResFlow</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResFlow - Register</title>
+    <link rel="stylesheet" href="register.css">
 </head>
-
 <body>
 
+    <header class="navbar">
+        <div class="logo">RF <span>ResFlow</span></div>
+        <button class="home-btn">← Home</button>
+    </header>
 
-  <div class="container_register">
-    <h2>Register</h2>
-    <form class="form-grid">
+    <div class="container">
+        <div class="card">
+            <h2>ResFlow — New Registration</h2>
+            <h3>Create Account</h3>
+            <p class="subtitle">Register to access the resource distribution platform</p>
 
-      <div class="Register_details">
-        <label for="fname">Full name</label>
-        <input type="text" id="fname" required placeholder="Enter your full name">
-      </div>
+            <form>
+                <div class="grid">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" placeholder="As per Aadhaar" required>
+                    </div>
 
-      <div class="Register_details">
-        <label for="number">Phone number</label>
-        <input type="number" id="number" placeholder="Enter your phone number" required>
-      </div>
+                    <div class="form-group">
+                        <label>Aadhaar Number</label>
+                        <input type="text" placeholder="XXXX-XXXX-XXXX" required>
+                    </div>
 
-      <div class="Register_details">
-        <label for="email">Email</label>
-        <input type="email" id="email" placeholder="Enter a valid email id" required>
-      </div>
+                    <div class="form-group">
+                        <label>Mobile Number</label>
+                        <input type="text" placeholder="+91 XXXXX XXXXX" required>
+                    </div>
 
-      <div class="Register_details">
-        <label for="password">Password</label>
-        <input type="password" id="password" placeholder="Enter your password" minlength="8" required>
-      </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" placeholder="email@example.com" required>
+                    </div>
 
-      <div class="Register_details">
-        <label for="pin">PIN Code</label>
-        <input type="number" id="pin" required>
-      </div>
+<div class="form-group">
+    <label>State / Union Territory</label>
+    <select required>
+        <option value="">Select State / UT</option>
 
-      <div class="Register_details">
-        <label for="house_hold_size">Household Size</label>
-        <input type="number" id="house_hold_size" required>
-      </div>
-      <div class="Register_details_full">
-        <label for="ration">Ration Number</label>
-        <textarea row="3"></textarea>
-      </div>
+        <!-- STATES -->
+        <option>Andhra Pradesh</option>
+        <option>Arunachal Pradesh</option>
+        <option>Assam</option>
+        <option>Bihar</option>
+        <option>Chhattisgarh</option>
+        <option>Goa</option>
+        <option>Gujarat</option>
+        <option>Haryana</option>
+        <option>Himachal Pradesh</option>
+        <option>Jharkhand</option>
+        <option>Karnataka</option>
+        <option>Kerala</option>
+        <option>Madhya Pradesh</option>
+        <option>Maharashtra</option>
+        <option>Manipur</option>
+        <option>Meghalaya</option>
+        <option>Mizoram</option>
+        <option>Nagaland</option>
+        <option>Odisha</option>
+        <option>Punjab</option>
+        <option>Rajasthan</option>
+        <option>Sikkim</option>
+        <option>Tamil Nadu</option>
+        <option>Telangana</option>
+        <option>Tripura</option>
+        <option>Uttar Pradesh</option>
+        <option>Uttarakhand</option>
+        <option>West Bengal</option>
 
-      <div class="Register_details_full">
-        <label for="address">Address</label>
-        <textarea row="3"></textarea>
-      </div>
+        <!-- UNION TERRITORIES -->
+        <option>Andaman and Nicobar Islands</option>
+        <option>Chandigarh</option>
+        <option>Dadra and Nagar Haveli and Daman and Diu</option>
+        <option>Delhi (NCT)</option>
+        <option>Jammu and Kashmir</option>
+        <option>Ladakh</option>
+        <option>Lakshadweep</option>
+        <option>Puducherry</option>
+    </select>
+</div>
 
-      <div class="Register_details_full">
-        <label for="category">Ration Card Type</label>
-        <select>
-          <option value="AAY">AAY (Antyodaya Anna Yojana)</option>
-          <option value="PHH">PHH (Priority Household)</option>
-          <option value="NPHH">NPHH (Non-Priority Household)</option>
-        </select>
-      </div>
+                    <div class="form-group">
+                        <label>District</label>
+                        <input type="text" placeholder="Enter district" required>
+                    </div>
 
-      <div class="button-group">
-        <button type="submit" class="reg_btn">Register</button>
-        <button type="reset" class="reset_btn">Reset</button>
-      </div>
+                    <div class="form-group">
+                        <label>PIN Code</label>
+                        <input type="text" placeholder="6-digit PIN" required>
+                    </div>
 
-    </form>
-  </div>
+                    <div class="form-group">
+                        <label>Household Size</label>
+                        <input type="number" placeholder="No. of members" required>
+                    </div>
+                </div>
+                <div class="form-group full">
+                        <label>Ration Card Number</label>
+                        <input type="text" placeholder="TN-12-1234-567890" required>
+                    </div>
 
+                <div class="form-group full">
+                    <label for="category">Ration Card Type</label>
+                    <select required>
+                        <option value="AAY">AAY (Antyodaya Anna Yojana)</option>
+                        <option value="PHH">PHH (Priority Household)</option>
+                        <option value="NPHH">NPHH (Non-Priority Household)</option>
+                    </select>
+                </div>
 
+                <div class="form-group full">
+                    <label>Category</label>
+                    <select required>
+                        <option>General</option>
+                        <option>OBC</option>
+                        <option>SC/ST</option>
+                    </select>
+                </div>
 
+                <div class="form-group full">
+                    <label>Account Type</label>
+                    <div class="account-types">
+                        <div class="type active">👤 Citizen</div>
+                        <div class="type">🏪 Dealer</div>
+                        <div class="type">🏥 Hospital</div>
+                    </div>
+                </div>
 
+                <div class="form-group full">
+                    <label>Create Password</label>
+                    <input type="password" placeholder="Min 8 characters" required>
+                </div>
 
+                <div class="form-group full">
+                    <label>Confirm Password</label>
+                    <input type="password" placeholder="Re-enter password" required>
+                </div>
 
+                <p class="terms">
+                    By registering, you agree to the Terms of Use. Your Aadhaar details will be verified with UIDAI.
+                </p>
 
+                <button class="submit-btn">Register & Continue →</button>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                <p class="signin">
+                    Already registered? <a href="#">Sign in</a>
+                </p>
+            </form>
+        </div>
+    </div>
 
 </body>
+</html>
 
 
 
 </html>
+

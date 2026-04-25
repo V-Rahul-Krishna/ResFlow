@@ -1,0 +1,68 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f7fb;
+}
+
+/* NAVBAR */
+.navbar {
+  background: #0d2b4c;
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+/* CONTAINER */
+.container {
+  padding: 20px;
+}
+
+/* WELCOME */
+.welcome {
+  margin-bottom: 20px;
+}
+
+.tier {
+  color: #007bff;
+  font-weight: bold;
+}
+
+/* CARDS */
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* HIGHLIGHT CARD */
+.highlight {
+  border-left: 6px solid #007bff;
+}
+
+/* ACTION BUTTONS */
+.actions {
+  margin-top: 20px;
+}
+
+.actions button {
+  padding: 10px 15px;
+  margin-right: 10px;
+  border: none;
+  background: #0d2b4c;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.actions button:hover {
+  background: #1b4d7a;
+}

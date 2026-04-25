@@ -92,7 +92,7 @@ body {
    Header / Hero Section
 ================================ */
 
-header {
+.header {
   margin-top: 60px;
   min-height: 80vh;
   padding: 50px;

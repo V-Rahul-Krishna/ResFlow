@@ -18,13 +18,21 @@ body {
 {
   width:48px
 }
-.logo span:first-child
+.logo
 {
-  background-color: #1e40af;
-  color: aliceblue;
+  width: 40px;
+  height: 40px;
+  background-color: #1e73be;
+  color: white;
   padding: 2px;
   text-align: center;
-  border-radius:5px ;
+  border-radius:10px ;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .navbar {
     display: flex;

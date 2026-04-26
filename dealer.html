@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dealer Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="dealer.css">
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="dash-nav">
+    <div class="logo"><h2></h2><span>RF </span><span>ResFlow</span></div>
+        <div class="nav-right">
+    <h2>Dealer Dashboard</h2>
+    <button class="home-btn">← Logout</button>
+    </div>
+    
+    
+  </div>
+
+  <!-- Welcome -->
+  <section class="welcome">
+    <h1>Welcome, <span>Agent Ravi</span></h1>
+    <p>Metro Fuel Station, T Nagar – Chennai</p>
+    <p>Manage today’s stock levels and incoming orders</p>
+  </section>
+
+  <!-- Stock Cards -->
+  <section class="dash-section">
+    <h3>Current Stock Status</h3>
+
+    <div class="stock-card">
+      <div class="stock-head">
+        <strong>LPG</strong>
+        <span class="low-text">Low</span>
+      </div>
+      <div class="stock-bar">
+        <div class="stock-fill low" style="width: 28%;"></div>
+      </div>
+      <div class="stock-foot">28% remaining</div>
+    </div>
+
+    <div class="stock-card">
+      <div class="stock-head">
+        <strong>Oxygen</strong>
+        <span class="ok-text">Normal</span>
+      </div>
+      <div class="stock-bar">
+        <div class="stock-fill normal" style="width: 65%;"></div>
+      </div>
+      <div class="stock-foot">65% remaining</div>
+    </div>
+  </section>
+
+  <!-- Incoming Orders -->
+  <section class="dash-section">
+    <h3>Incoming Orders</h3>
+
+    <div class="table-card">
+      <table>
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>Customer</th>
+            <th>Resource</th>
+            <th>Requested Time</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>ORD-201</td>
+            <td>Rajesh Kumar</td>
+            <td>LPG</td>
+            <td>10:30 AM</td>
+            <td><span class="badge pending">Pending</span></td>
+          </tr>
+          <tr>
+            <td>ORD-202</td>
+            <td>Priya Devi</td>
+            <td>Oxygen</td>
+            <td>10:50 AM</td>
+            <td><span class="badge approved">Approved</span></td>
+          </tr>
+          <tr>
+            <td>ORD-203</td>
+            <td>Suresh M</td>
+            <td>LPG</td>
+            <td>11:10 AM</td>
+            <td><span class="badge pending">Pending</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+ <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand">ResFlow</div>
+          <div class="footer-brand-sub">Unified Essential Resource Distribution &amp; Crisis Management Platform. An initiative under the Ministry of Petroleum &amp; Natural Gas, Government of India.</div>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="#">LPG Distribution</a>
+          <a href="#">Petrol &amp; Diesel</a>
+          <a href="#">Medical Oxygen</a>
+          <a href="#">Emergency Reserves</a>
+        </div>
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <a href="#">Citizen Portal</a>
+          <a href="#">Dealer Portal</a>
+          <a href="#">Hospital Access</a>
+          <a href="#">Admin Console</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">RTI</a>
+          <a href="#">Accessibility</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-govt">© 2024 Government of India. Ministry of Petroleum &amp; Natural Gas. All rights reserved.</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.25);">Version 2.1.0 | NIC Hosted | WCAG 2.1 AA Compliant</div>
+      </div>
+    </div>
+  </footer>
+ 
+
+</body>
+</html>

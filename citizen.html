@@ -1,65 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Citizen Dashboard - ResFlow</title>
-  <link rel="stylesheet" href="citizen.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ResFlow Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="citizen.css">
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <h2>ResFlow</h2>
-    <ul>
-      <li>Dashboard</li>
-      <li>Book Resource</li>
-      <li>History</li>
-      <li>Logout</li>
-    </ul>
-  </nav>
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">RF • ResFlow</div>
 
-  <div class="container">
+  <div class="nav-actions">
+    <button class="btn">Book Resource</button>
+    <button class="btn danger">Complaint</button>
+    <div class="user">Rajesh Kumar</div>
+  </div>
+</nav>
 
-    <!-- WELCOME -->
-    <section class="welcome">
-      <h1>Welcome, Sivaganesh 👋</h1>
-      <p>Priority Tier: <span class="tier">T2</span></p>
-    </section>
+<!-- MAIN -->
+<div class="container">
 
-    <!-- PROFILE SUMMARY -->
-    <section class="card">
-      <h2>Your Profile</h2>
-      <p>Family Size: 4</p>
-      <p>Location: Chennai</p>
-      <p>Category: BPL</p>
-    </section>
+  <!-- PROFILE CARD -->
+  <div class="card profile">
+    <h2>Rajesh Kumar 👋</h2>
+    <p>Chennai • PIN 600001</p>
+    <div class="tags">
+      <span>BPL</span>
+      <span>Tier 2</span>
+      <span>4 Members</span>
+    </div>
+  </div>
 
-    <!-- ALLOCATION DETAILS (CORE FEATURE) -->
-    <section class="card highlight">
-      <h2>Your Allocation (Today)</h2>
-      <p>LPG: 1 Cylinder</p>
-      <p>Petrol: 5 Litres</p>
-      <p>Diesel: 3 Litres</p>
-      <p>Time Slot: 10 AM – 12 PM</p>
-    </section>
+  <!-- STATS -->
+  <div class="grid-4">
+    <div class="card stat">
+      <h3>Quota</h3>
+      <p class="big">12</p>
+    </div>
+    <div class="card stat">
+      <h3>Used</h3>
+      <p class="big">6</p>
+    </div>
+    <div class="card stat">
+      <h3>Next Refill</h3>
+      <p>Dec 12</p>
+    </div>
+    <div class="card stat">
+      <h3>Complaints</h3>
+      <p class="big red">1</p>
+    </div>
+  </div>
 
-    <!-- USAGE SNAPSHOT -->
-    <section class="card">
-      <h2>Recent Usage</h2>
-      <ul>
-        <li>Petrol - 3 Litres (Last week)</li>
-        <li>LPG - 1 Cylinder (15 days ago)</li>
+  <!-- MAIN GRID -->
+  <div class="grid-2">
+
+    <!-- ALLOCATIONS -->
+    <div class="card">
+      <h3>My Allocations</h3>
+      <ul class="list">
+        <li>LPG – 6/12 Used</li>
+        <li>Petrol – 32/40 L</li>
+        <li>Diesel – Not Enrolled</li>
       </ul>
-    </section>
+    </div>
 
-    <!-- ACTIONS -->
-    <section class="actions">
-      <button>Book Resource</button>
-      <button>View History</button>
-      <button>Raise Complaint</button>
-    </section>
+    <!-- QUICK ACTIONS -->
+    <div class="card">
+      <h3>Quick Actions</h3>
+      <div class="actions">
+        <button>Book Resource</button>
+        <button>View History</button>
+        <button class="danger">Complaint</button>
+        <button>Alerts</button>
+      </div>
+    </div>
+
+    <!-- DELIVERY -->
+    <div class="card">
+      <h3>Delivery Tracking</h3>
+      <p><strong>Order:</strong> RFL-1291</p>
+      <p>Status: Out for Delivery</p>
+    </div>
+
+    <!-- HISTORY -->
+    <div class="card">
+      <h3>Recent Transactions</h3>
+      <ul class="list">
+        <li>LPG – ₹903 ✔</li>
+        <li>Petrol – ₹1920 ✔</li>
+        <li>LPG – ₹903 ✔</li>
+      </ul>
+    </div>
 
   </div>
+
+  <!-- ALERTS -->
+  <div class="card">
+    <h3>Alerts</h3>
+    <p>⚠ Petrol near limit</p>
+    <p>📋 LPG booking open</p>
+  </div>
+
+</div>
 
 </body>
 </html>

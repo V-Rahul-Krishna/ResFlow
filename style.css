@@ -1,0 +1,429 @@
+/* ===============================
+   Global Styles
+================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'IBM Plex Sans', sans-serif;
+  background-color: #f0f2f5;;
+}
+
+/* ===============================
+   Navigation Bar
+================================ */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #ffffff;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+}
+
+.nav h2 {
+  margin: 0;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav a {
+  color: #333;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+.nav a:hover {
+  background-color: #e5e7eb;
+}
+
+/* Login Buttons */
+
+.login {
+  display: flex;
+  gap: 12px;
+}
+
+.login a {
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.login a:first-child {
+  background-color: #ffffff;
+  color: blue;
+  border: 1px solid blue;
+}
+
+.login a:last-child {
+  background-color: blue;
+  color: #ffffff;
+}
+.login a:first-child:hover
+{
+  background-color: blue;
+  color: #ffffff;
+}
+.login a:last-child:hover
+{
+  background-color: #ffffff;
+  color: blue;
+  border: 1px solid blue;
+
+}
+
+/* ===============================
+   Header / Hero Section
+================================ */
+
+.header {
+  margin-top: 60px;
+  min-height: 80vh;
+  padding: 50px;
+  background: linear-gradient(to right, #0f172a, #1e3a8a);
+  color: white;
+
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.header-text {
+  max-width: 520px;
+}
+
+header span {
+  color: #4d9fff;
+}
+
+header h1 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+header p {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+.h3 {
+  display: inline-block;
+  padding: 6px 14px;
+  font-size: 12px;
+  background: rgba(26, 86, 219, 0.2);
+  border: 1px solid rgba(26, 86, 219, 0.4);
+  border-radius: 20px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+/* Hero Buttons */
+
+.hero-btns {
+  display: flex;
+  gap: 12px;
+}
+
+.hero-btns button {
+  padding: 12px 28px;
+  font-size: 15px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.hero-btns button:first-child {
+  background-color: #2563eb;
+  color: white;
+}
+
+
+/* ===============================
+   Hero Resource Cards
+================================ */
+
+.hero-visual {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.resource-card {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.resource-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.resource-info h3 {
+  margin: 0;
+  font-size: 15px;
+}
+
+.resource-info p {
+  margin: 0;
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+/* ===============================
+   Services Section
+================================ */
+.section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: blue;
+    margin-bottom: 8px;
+}
+.section
+{
+  padding: 64px 24px;
+  
+}
+.service-head {
+  text-align: center;
+  margin-top: 60px;
+}
+.section-title {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+   
+    margin-bottom: 12px;
+}
+.services-container {
+  
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+
+}
+.section-inner {
+  
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.service {
+  
+  border-radius: 14px;
+  
+  
+    padding: 28px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ===============================
+   Features Section
+================================ */
+
+.features-section {
+  padding: 40px 30px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.key {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.feature-card {
+  background-color: #ffffff;
+  border-radius: 14px;
+  padding: 28px 24px;
+}
+
+.card-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 14px;
+}
+
+.feature-card h3 {
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+
+.feature-card p {
+  font-size: 14px;
+  color: #666;
+}
+/* Tiers*/
+.grid-4 {
+  
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+
+}
+.tier-card {
+    border-radius: 30px;
+    padding: 14px 16px;
+    border-left: 4px solid;
+}
+.tier-T1 {
+    background: #fef2f2;
+    border-color: red;
+}
+
+.tier-T2 {
+    background: #fffbeb;
+    border-color: yellow;
+}
+.tier-T3 {
+    background: #f0fdf4;
+    border-color: green;
+}
+.tier-T4 {
+    background: #eff6ff;
+    border-color: blue;
+}
+/*Contact Us*/
+
+
+.grid-2
+{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  
+}
+.form-group {
+    margin-bottom: 18px;
+}
+.form-control {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid var(--cloud);
+    border-radius: 8px;
+    font-size: 14px;
+    color: var(--ink);
+    background: var(--white);
+    transition: border-color 0.15s;
+}
+input, select, textarea {
+    font-family: inherit;
+}
+.card button{
+  background-color: #2563eb;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  color: white;
+  border:none;
+}
+.card {
+    background: white;
+    border: 1px solid whitesmoke;
+    border-radius: 14px;
+    padding: 24px;
+}
+/* ===============================
+   Footer
+================================ */
+
+.footer {
+      background: linear-gradient(to right, #0f172a, #1e3a8a);
+
+    color: rgba(255, 255, 255, 0.5);
+    padding: 40px 24px 24px;
+    margin-top: auto;
+}
+.footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 32px;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
+.footer-brand {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+}
+.footer-govt {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.25);
+}
+.footer-col a {
+    display: block;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 8px;
+    transition: color 0.15s;
+    text-decoration: none;
+}
+
+.footer-brand-sub {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.35);
+    line-height: 1.6;
+}
+@media (max-width: 600px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .services-container {
+    flex-direction: column;
+  }
+
+  header {
+    flex-direction: column;
+  }
+}

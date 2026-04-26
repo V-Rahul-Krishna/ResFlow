@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+body {
+    background: #f4f6f9;
+}
+.card>h2
+{
+  display: flex;
+  align-items: center;
+  gap:12px;
+}
+.res-icon
+{
+  width:48px
+}
+.logo span:first-child
+{
+  background-color: #1e40af;
+  color: aliceblue;
+  padding: 2px;
+  text-align: center;
+  border-radius:5px ;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: white;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo {
+    font-weight: bold;
+    color: #1e40af;
+}
+
+.logo span {
+    margin-left: 5px;
+}
+
+.home-btn {
+    border: 1px solid #2563eb;
+    background: transparent;
+    padding: 6px 12px;
+    border-radius: 6px;
+    color: #2563eb;
+    cursor: pointer;
+}
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+
+.card {
+    background: white;
+    padding: 25px;
+    width: 700px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.card h2 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.card h3 {
+    margin-top: 10px;
+}
+
+.subtitle {
+    color: gray;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full {
+    margin-top: 15px;
+}
+
+label {
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+input, select {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+.account-types {
+    display: flex;
+    gap: 10px;
+}
+
+.type {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ccc;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.type.active {
+    border: 2px solid #2563eb;
+    background: #eff6ff;
+}
+
+.submit-btn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background: #1e40af;
+}
+
+
+.terms {
+    font-size: 12px;
+    color: gray;
+    margin-top: 10px;
+}
+
+/* Sign in */
+.signin {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.signin a {
+    color: #2563eb;
+    text-decoration: none;
+}

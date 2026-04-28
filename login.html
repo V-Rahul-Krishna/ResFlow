@@ -31,13 +31,19 @@
               
                <div class="form-group full">
                     <label>Sign in as</label>
-                    <div class="account-types">
-                        <div class="type active">👤 Citizen</div>
-                        <div class="type">🏪 Dealer</div>
-                        <div class="type">🏥 Hospital</div>
-                    </div>
+                    <div class="account-type">
+  <label class="option">
+    <input type="radio" name="atype" value="citizen">
+    <span>Citizen 👤</span>
+  </label>
+
+  <label class="option">
+    <input type="radio" name="atype" value="dealer">
+    <span>Dealer 🏪</span>
+  </label>
+</div>
               </div>
-              <button class="submit-btn" onclick="login()">Sign In</button>
+              <button type="button" class="submit-btn" onclick="login()">Sign In</button>
 
               <p class="signin">
                     Don't have an account? <a href="register.html">Register here</a>
@@ -52,6 +58,18 @@ function login() {
   const email = document.getElementById("loginEmail").value;
   const password = document.getElementById("loginPassword").value;
 
+  const userType = document.querySelector('input[name="atype"]:checked');
+
+  if (!email || !password) {
+    alert("Please fill all fields");
+    return;
+  }
+
+  if (!userType) {
+    alert("Please select account type");
+    return;
+  }
+
   const storedUser = JSON.parse(localStorage.getItem("userData"));
 
   if (!storedUser) {
@@ -60,10 +78,14 @@ function login() {
   }
 
   if (email === storedUser.email && password === storedUser.password) {
-    
     alert("Login successful!");
-    let check=document.getElementById("atype").value;
-    
+
+    if (userType.value === "citizen") {
+      window.location.href = "citizen.html";
+    } else if (userType.value === "dealer") {
+      window.location.href = "dealer.html";
+    }
+
   } else {
     alert("Invalid email or password");
   }

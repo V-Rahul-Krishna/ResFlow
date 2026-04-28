@@ -4,7 +4,46 @@
     box-sizing: border-box;
     font-family: 'IBM Plex Sans', sans-serif;
 }
+.account-type {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+}
 
+.option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.25s ease;
+  background-color: #fff;
+}
+
+/* Hide default checkbox */
+.option input {
+  display: none;
+}
+
+/* Hover effect */
+.option:hover {
+  border-color: #007bff;
+  background-color: #f0f7ff;
+}
+
+/* Checked state */
+.option input:checked + span {
+  font-weight: 600;
+}
+
+.option:has(input:checked) {
+  border-color: #007bff;
+  background-color: #e7f1ff;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+}
 body {
     background: #f4f6f9;
 }

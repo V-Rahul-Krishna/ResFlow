@@ -1,26 +1,129 @@
-// ===== booking.html =====
 <!DOCTYPE html>
-<html>
+<html lang="en">
+ 
 <head>
-<title>Booking</title>
-<link rel="stylesheet" href="citizen.css">
-<script defer src="script.js"></script>
+  <!-- Page metadata -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ResFlow – Citizen Dashboard</title>
+ 
+  <!-- Link to external CSS file -->
+  <link rel="stylesheet" href="citizen.css" />
 </head>
+ 
 <body>
+ 
+  <!-- ===== MAIN WRAPPER ===== -->
+  <div class="wrapper">
+ 
+    <!-- ===== PAGE HEADER ===== -->
+    <div class="header">
+      <div class="logo-area">
+        <span class="logo-icon">🇮🇳</span>
+        <div>
+          <h1 class="site-title">ResFlow</h1>
+          <p class="site-sub">Resource Distribution Platform</p>
+        </div>
+      </div>
+      <span class="role-badge">Citizen Portal</span>
+    </div>
+ 
+    <!-- ===== PAGE TITLE ===== -->
+    <h2 class="page-title">Citizen Dashboard – ResFlow</h2>
+    <p class="page-desc">
+      Fill in your family details below to check eligibility and book your LPG cylinder.
+    </p>
+ 
+    <!-- ===== MAIN CARD ===== -->
+    <div class="card">
+ 
+      <!-- Card Title -->
+      <h3 class="card-title">📋 LPG Booking Form</h3>
+ 
+      <!-- ===== FORM ===== -->
+      <!--
+        This form collects family income and member count.
+        Validation and booking logic are handled in citizen_dashboard.js
+      -->
+      <form id="bookingForm">
+ 
+        <!-- Family Income Field -->
+        <div class="form-group">
+          <label for="income" class="form-label">
+            Family Annual Income (₹)
+          </label>
+          <input
+            type="number"
+            id="income"
+            class="form-input"
+            placeholder="e.g. 120000"
+            min="1"
+          />
+          <!-- Error message shown by JS -->
+          <span class="error-msg" id="incomeError"></span>
+        </div>
+ 
+        <!-- Number of Family Members Field -->
+        <div class="form-group">
+          <label for="members" class="form-label">
+            Number of Family Members
+          </label>
+          <input
+            type="number"
+            id="members"
+            class="form-input"
+            placeholder="e.g. 4"
+            min="1"
+          />
+          <!-- Error message shown by JS -->
+          <span class="error-msg" id="membersError"></span>
+        </div>
+ 
+        <!-- Book LPG Button -->
+        <button type="button" id="bookBtn" class="book-btn" onclick="bookLPG()">
+          🔥 Book LPG
+        </button>
+ 
+      </form>
+      <!-- End of Form -->
+ 
+      <!-- ===== CONFIRMATION MESSAGE ===== -->
+      <!--
+        This section is hidden by default.
+        It becomes visible when booking is successful.
+      -->
+      <div class="confirm-box" id="confirmBox">
+        <span class="confirm-icon">✅</span>
+        <div>
+          <p class="confirm-title">Booking Confirmed!</p>
+          <p class="confirm-detail" id="confirmDetail"></p>
+          <p class="confirm-ref" id="confirmRef"></p>
+        </div>
+      </div>
+ 
+    </div>
+    <!-- End of Card -->
+ 
+ 
+    <!-- ===== INFO SECTION ===== -->
+    <!--
+      Simple info cards to show the user relevant details.
+      These are static — no dynamic data in this student version.
+    -->
 
-<h2>Book Resource</h2>
-
-<select id="resource">
-  <option>LPG</option>
-  <option>Petrol</option>
-</select>
-
-<input type="number" id="qty" placeholder="Quantity">
-<input type="date" id="date">
-
-<button onclick="book()">Book</button>
-
-<p id="result"></p>
-
+    <!-- End of Info Section -->
+ 
+ 
+    <!-- ===== FOOTER ===== -->
+    <div class="footer">
+      <p>© 2024 ResFlow &nbsp;|&nbsp; Ministry of Petroleum &amp; Natural Gas &nbsp;|&nbsp; Government of India</p>
+    </div>
+ 
+  </div>
+  <!-- End of Wrapper -->
+ 
+  <!-- Link to external JavaScript file -->
+  <script src="citizen.js"></script>
+ 
 </body>
 </html>

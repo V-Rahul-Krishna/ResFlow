@@ -1,31 +1,303 @@
-
-body {
-  font-family: Arial;
+/* =============================================
+   ResFlow – Citizen Dashboard Stylesheet
+   Student Project | Basic Clean Design
+   ============================================= */
+ 
+ 
+/* ===== RESET & BASE ===== */
+/* Remove default browser spacing */
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
-header {
-  background: blue;
-  color: white;
-  padding: 10px;
-}
-
-nav a {
-  margin: 10px;
-  color: white;
-}
-
-.hero {
-  text-align: center;
-  padding: 50px;
-}
-
-.grid {
-  display: flex;
-  gap: 10px;
-}
-
-.card {
-  border: 1px solid black;
+ 
+/* Body background and font */
+body {
+  background-color: #f0f4f8;
+  font-family: Arial, sans-serif;
+  color: #333333;
+  min-height: 100vh;
   padding: 20px;
+}
+ 
+ 
+/* ===== WRAPPER ===== */
+/* Centers everything and limits max width */
+.wrapper {
+  max-width: 700px;
+  margin: 0 auto;
+}
+ 
+ 
+/* ===== HEADER ===== */
+/* Top bar with logo and role badge */
+.header {
+  background-color: #1a56db;
+  color: white;
+  padding: 14px 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+ 
+/* Logo area: flag icon + text side by side */
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+ 
+.logo-icon {
+  font-size: 32px;
+}
+ 
+/* Site name text */
+.site-title {
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+ 
+.site-sub {
+  font-size: 11px;
+  opacity: 0.8;
+}
+ 
+/* Role badge pill on the right side */
+.role-badge {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+}
+ 
+ 
+/* ===== PAGE TITLE ===== */
+.page-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #1a2035;
+  margin-bottom: 6px;
+}
+ 
+.page-desc {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 22px;
+}
+ 
+ 
+/* ===== MAIN CARD ===== */
+/* White box that wraps the form */
+.card {
+  background-color: #ffffff;
+  border: 1px solid #dde3f0;
+  border-radius: 10px;
+  padding: 28px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+}
+ 
+/* Card section title */
+.card-title {
+  font-size: 17px;
+  font-weight: bold;
+  color: #1a2035;
+  margin-bottom: 22px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #eef1f8;
+}
+ 
+ 
+/* ===== FORM ELEMENTS ===== */
+ 
+/* Wrapper for each label + input pair */
+.form-group {
+  margin-bottom: 18px;
+}
+ 
+/* Label above each input */
+.form-label {
+  display: block;
+  font-size: 13px;
+  font-weight: bold;
+  color: #444;
+  margin-bottom: 6px;
+}
+ 
+/* Text/number input box */
+.form-input {
+  width: 100%;
+  padding: 10px 13px;
+  border: 1.5px solid #cdd5e0;
+  border-radius: 7px;
+  font-size: 14px;
+  color: #222;
+  background-color: #fafbff;
+  outline: none;
+  transition: border-color 0.2s;
+}
+ 
+/* Highlight input border when user clicks on it */
+.form-input:focus {
+  border-color: #1a56db;
+  background-color: #fff;
+}
+ 
+/* Red border if input has error */
+.form-input.error {
+  border-color: #e63757;
+}
+ 
+/* Small red error text shown below input */
+.error-msg {
+  display: block;
+  font-size: 12px;
+  color: #e63757;
+  margin-top: 4px;
+  min-height: 16px; /* Keeps layout stable even when empty */
+}
+ 
+ 
+/* ===== BOOK BUTTON ===== */
+.book-btn {
+  width: 100%;
+  padding: 13px;
+  background-color: #1a56db;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 6px;
+  transition: background-color 0.2s, transform 0.1s;
+}
+ 
+/* Hover effect */
+.book-btn:hover {
+  background-color: #1040b0;
+}
+ 
+/* Click press effect */
+.book-btn:active {
+  transform: scale(0.98);
+}
+ 
+/* Disabled state after successful booking */
+.book-btn:disabled {
+  background-color: #9ab0e8;
+  cursor: not-allowed;
+}
+ 
+ 
+/* ===== CONFIRMATION BOX ===== */
+/* Hidden by default; shown by JS after successful booking */
+.confirm-box {
+  display: none;               /* Hidden initially */
+  align-items: flex-start;
+  gap: 14px;
+  margin-top: 22px;
+  background-color: #e6f9f3;
+  border: 1.5px solid #00b37e;
+  border-radius: 9px;
+  padding: 16px 18px;
+}
+ 
+/* When JS adds class 'show', make it flex (visible) */
+.confirm-box.show {
+  display: flex;
+}
+ 
+/* Big green checkmark icon */
+.confirm-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+}
+ 
+/* "Booking Confirmed!" bold text */
+.confirm-title {
+  font-size: 15px;
+  font-weight: bold;
+  color: #007f59;
+  margin-bottom: 4px;
+}
+ 
+/* Detail line: income, members info */
+.confirm-detail {
+  font-size: 13px;
+  color: #2d5a4a;
+  margin-bottom: 3px;
+}
+ 
+/* Reference ID line */
+.confirm-ref {
+  font-size: 12px;
+  color: #5a7a6a;
+  font-style: italic;
+}
+ 
+ 
+
+/* Emoji icon at top of card */
+.info-icon {
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+ 
+/* Label text */
+.info-label {
+  font-size: 11px;
+  color: #888;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+ 
+/* Value text */
+.info-value {
+  font-size: 13px;
+  font-weight: bold;
+  color: #1a2035;
+}
+ 
+ 
+/* ===== FOOTER ===== */
+.footer {
+  text-align: center;
+  font-size: 12px;
+  color: #999;
+  padding: 14px 0;
+  border-top: 1px solid #e0e5f0;
+}
+ 
+ 
+/* ===== RESPONSIVE – smaller screens ===== */
+@media (max-width: 500px) {
+ 
+  /* Stack info cards vertically on mobile */
+  .info-row {
+    flex-direction: column;
+  }
+ 
+  /* Smaller header text */
+  .site-title {
+    font-size: 16px;
+  }
+ 
+  /* Hide role badge on very small screens */
+  .role-badge {
+    display: none;
+  }
+ 
+  /* Adjust card padding */
+  .card {
+    padding: 18px;
+  }
 }

@@ -352,6 +352,16 @@ header p {
 input, select, textarea {
     font-family: inherit;
 }
+#displaythank
+{
+  background-color: #f8f9fa;
+  color: #0f172a;
+  font-size: 13.5px;
+  padding: 10px;
+  border-radius: 14px;
+  letter-spacing: 1.2px;
+  font-weight: 600;
+}
 .card button{
   background-color: #2563eb;
   padding: 8px 18px;

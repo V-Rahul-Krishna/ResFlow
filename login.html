@@ -22,11 +22,11 @@
           <form>
             
               <div class="form-group">
-                  <label>Mobile / Aadhar / Email</label> <br>
-                  <input type="text" placeholder="Enter Registered ID">
+                  <label>Email</label> <br>
+                  <input type="email" placeholder="Enter Registered ID" id="loginEmail">
                    <br>
                   <label>Password </label> <br>
-                  <input type="password" placeholder="Enter Password"> 
+                  <input type="password" placeholder="Enter Password" id="loginPassword"> 
                </div>
               
                <div class="form-group full">
@@ -37,7 +37,7 @@
                         <div class="type">🏥 Hospital</div>
                     </div>
               </div>
-              <button class="submit-btn">Sign In</button>
+              <button class="submit-btn" onclick="login()">Sign In</button>
 
               <p class="signin">
                     Don't have an account? <a href="register.html">Register here</a>
@@ -47,5 +47,26 @@
           </form>
         </div>
     </div>
+    <script>
+function login() {
+  const email = document.getElementById("loginEmail").value;
+  const password = document.getElementById("loginPassword").value;
+
+  const storedUser = JSON.parse(localStorage.getItem("userData"));
+
+  if (!storedUser) {
+    alert("No user registered!");
+    return;
+  }
+
+  if (email === storedUser.email && password === storedUser.password) {
     
+    alert("Login successful!");
+    let check=document.getElementById("atype").value;
+    
+  } else {
+    alert("Invalid email or password");
+  }
+}
+</script>
 </body>

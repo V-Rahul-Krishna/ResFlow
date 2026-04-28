@@ -1,110 +1,26 @@
+// ===== booking.html =====
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ResFlow Dashboard</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<title>Booking</title>
 <link rel="stylesheet" href="citizen.css">
+<script defer src="script.js"></script>
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-  <div class="logo">RF • ResFlow</div>
+<h2>Book Resource</h2>
 
-  <div class="nav-actions">
-    <button class="btn">Book Resource</button>
-    <button class="btn danger">Complaint</button>
-    <div class="user">Rajesh Kumar</div>
-  </div>
-</nav>
+<select id="resource">
+  <option>LPG</option>
+  <option>Petrol</option>
+</select>
 
-<!-- MAIN -->
-<div class="container">
+<input type="number" id="qty" placeholder="Quantity">
+<input type="date" id="date">
 
-  <!-- PROFILE CARD -->
-  <div class="card profile">
-    <h2>Rajesh Kumar 👋</h2>
-    <p>Chennai • PIN 600001</p>
-    <div class="tags">
-      <span>BPL</span>
-      <span>Tier 2</span>
-      <span>4 Members</span>
-    </div>
-  </div>
+<button onclick="book()">Book</button>
 
-  <!-- STATS -->
-  <div class="grid-4">
-    <div class="card stat">
-      <h3>Quota</h3>
-      <p class="big">12</p>
-    </div>
-    <div class="card stat">
-      <h3>Used</h3>
-      <p class="big">6</p>
-    </div>
-    <div class="card stat">
-      <h3>Next Refill</h3>
-      <p>Dec 12</p>
-    </div>
-    <div class="card stat">
-      <h3>Complaints</h3>
-      <p class="big red">1</p>
-    </div>
-  </div>
-
-  <!-- MAIN GRID -->
-  <div class="grid-2">
-
-    <!-- ALLOCATIONS -->
-    <div class="card">
-      <h3>My Allocations</h3>
-      <ul class="list">
-        <li>LPG – 6/12 Used</li>
-        <li>Petrol – 32/40 L</li>
-        <li>Diesel – Not Enrolled</li>
-      </ul>
-    </div>
-
-    <!-- QUICK ACTIONS -->
-    <div class="card">
-      <h3>Quick Actions</h3>
-      <div class="actions">
-        <button>Book Resource</button>
-        <button>View History</button>
-        <button class="danger">Complaint</button>
-        <button>Alerts</button>
-      </div>
-    </div>
-
-    <!-- DELIVERY -->
-    <div class="card">
-      <h3>Delivery Tracking</h3>
-      <p><strong>Order:</strong> RFL-1291</p>
-      <p>Status: Out for Delivery</p>
-    </div>
-
-    <!-- HISTORY -->
-    <div class="card">
-      <h3>Recent Transactions</h3>
-      <ul class="list">
-        <li>LPG – ₹903 ✔</li>
-        <li>Petrol – ₹1920 ✔</li>
-        <li>LPG – ₹903 ✔</li>
-      </ul>
-    </div>
-
-  </div>
-
-  <!-- ALERTS -->
-  <div class="card">
-    <h3>Alerts</h3>
-    <p>⚠ Petrol near limit</p>
-    <p>📋 LPG booking open</p>
-  </div>
-
-</div>
+<p id="result"></p>
 
 </body>
 </html>

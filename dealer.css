@@ -209,3 +209,20 @@ td {
     font-size: 22px;
   }
 }
+/* Extra badges for priority */
+.high {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.medium {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+/* Small helper text */
+.note {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 10px;
+}

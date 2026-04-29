@@ -34,7 +34,17 @@ body {
   font-weight: bold;
   letter-spacing: 0.5px;
 }
-
+.nav-logo
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap:7px;
+}
+.res-icon
+{
+  width:48px
+}
 .logo span:first-child {
   background: #fff;
   background: linear-gradient(to right, #0f172a, #1e3a8a);

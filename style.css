@@ -39,11 +39,22 @@ body {
   font-size: 16.5px;
   
 }
+.nav-logo
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap:7px;
+}
 
 .nav-links {
   display: flex;
   align-items: center;
   gap: 24px;
+}
+.res-icon
+{
+  width:48px
 }
 
 .nav a {

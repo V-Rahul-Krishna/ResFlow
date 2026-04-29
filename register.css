@@ -53,6 +53,13 @@ body {
   align-items: center;
   gap:12px;
 }
+.nav-logo
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap:7px;
+}
 .res-icon
 {
   width:48px
@@ -77,9 +84,20 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px;
-    background: white;
+    background: linear-gradient(to right, #0f172a, #1e3a8a);
+  color: white;
+  padding: 16px 28px;
+    
     border-bottom: 1px solid #ddd;
+}
+.home-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 18px;
+  cursor: pointer;
+  font-size: 13px;
 }
 
 .logo {
@@ -91,14 +109,7 @@ body {
     margin-left: 5px;
 }
 
-.home-btn {
-    border: 1px solid #2563eb;
-    background: transparent;
-    padding: 6px 12px;
-    border-radius: 6px;
-    color: #2563eb;
-    cursor: pointer;
-}
+
 
 
 .container {

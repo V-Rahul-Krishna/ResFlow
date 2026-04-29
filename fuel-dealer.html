@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fuel Dealer Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="stylesheet" href="dealer.css">
+</head>
+
+<body>
+
+<!-- ===== TOP NAV ===== -->
+<div class="dash-nav">
+  <div class="logo">
+    <span>RF</span> <span>ResFlow</span>
+  </div>
+  <div class="nav-right">
+    <h2>Fuel Dealer Dashboard</h2>
+    <button class="home-btn" onclick="logout()">← Logout</button>
+  </div>
+</div>
+
+<!-- ===== WELCOME ===== -->
+<section class="welcome">
+  <h2 id="fuelDealerWelcome"></h2>
+  <p>Manage petrol & diesel distribution requests</p>
+</section>
+
+<!-- ===== INCOMING ORDERS ===== -->
+<section class="dash-section">
+  <h3>Fuel Booking Queue (FIFO)</h3>
+
+  <div class="table-card">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>User Name</th>
+          <th>User ID</th>
+          <th>Address</th>
+          <th>Fuel Type</th>
+          <th>Litres</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="fuelTable"></tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-bottom">
+      <div class="footer-govt">
+        © 2026 Government of India. Ministry of Petroleum & Natural Gas.
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* =========================
+   AUTH CHECK
+========================= */
+const user = JSON.parse(localStorage.getItem("currentUser"));
+
+if (!user || user.type !== "fuelDealer") {
+  window.location.href = "login.html";
+}
+
+document.getElementById("fuelDealerWelcome").innerText =
+  `Welcome ${user.name} (ID: ${user.id})`;
+
+/* =========================
+   LOAD BOOKINGS
+========================= */
+const bookings = JSON.parse(localStorage.getItem("fuelBookings")) || [];
+const table = document.getElementById("fuelTable");
+
+/* FIFO — no sorting */
+bookings.forEach((b, index) => {
+  const row = document.createElement("tr");
+
+  row.innerHTML = `
+    <td>${index + 1}</td>
+    <td>${b.userName}</td>
+    <td>${b.userId}</td>
+    <td>${b.address}</td>
+    <td>${b.fuelType}</td>
+    <td>${b.litres}</td>
+    <td>${b.status}</td>
+  `;
+
+  table.appendChild(row);
+});
+
+/* =========================
+   LOGOUT
+========================= */
+function logout() {
+  localStorage.removeItem("currentUser");
+  window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>

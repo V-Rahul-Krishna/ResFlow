@@ -10,14 +10,14 @@
 <body>
   
      <header class="navbar">
-        <div class="logo">RF <span>ResFlow</span></div>
+       <h2 class="nav-logo"><span><img src="./Images/waves.png" alt="ResFlow icon" class="res-icon"> </span><span>ResFlow</span></h2>
         <button class="home-btn">← Home</button>
     </header>
     
     
     <div class="container">
         <div class="card">
-           <h2><span><img src="./Images/waves.png" alt="ResFlow icon" class="res-icon"> </span><span>ResFlow</span></h2>
+           <h2><span>ResFlow</span></h2>
            <h3>Sign In</h3>
            <p class="subtitle">Access your resource management dashboard</p>
           <form>
@@ -92,7 +92,7 @@ document.getElementById("signin").addEventListener("click", function () {
   console.log("MATCHED USER:", matchedUser);
 
   if (!matchedUser) {
-    console.log("❌ INVALID CREDENTIALS");
+    alert("❌ INVALID CREDENTIALS");
     return;
   }
 

@@ -162,7 +162,7 @@
       </div>
       
       <div class="footer-bottom">
-        <div class="footer-govt">© 2024 Government of India. Ministry of Petroleum &amp; Natural Gas. All rights reserved.</div>
+        <div class="footer-govt">© 2026 Government of India. Ministry of Petroleum &amp; Natural Gas. All rights reserved.</div>
         <div style="font-size:12px;color:rgba(255,255,255,0.25);">Version 2.1.0 | NIC Hosted | WCAG 2.1 AA Compliant</div>
       </div>
     </div>
@@ -324,7 +324,10 @@ function bookFuel() {
 
   document.getElementById("fuelForm").reset();
 }
-
+function logout() {
+  localStorage.removeItem("currentUser");
+  window.location.href = "login.html";
+}
 /* ===============================
    RESULT DISPLAY (NO ALERTS)
 ================================ */

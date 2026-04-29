@@ -38,8 +38,8 @@
       <th>Priority</th>
       <th>Citizen Name</th>
       <th>Citizen ID</th>
-      <th>Income</th>
-      <th>Members</th>
+      <th>Ration Card No</th>
+      <th>Ration Card Type</th>
     </tr>
   </thead>
   <tbody id="dealerTable"></tbody>
@@ -85,7 +85,7 @@
 <script>
   const user = JSON.parse(localStorage.getItem("currentUser"));
 
-if (!user || user.type !== "dealer") {
+if (!user || user.type !== "dealer_lpg") {
   window.location.href = "login.html";
 }
 

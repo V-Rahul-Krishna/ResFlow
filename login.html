@@ -97,10 +97,16 @@ document.getElementById("signin").addEventListener("click", function () {
   }
 
   localStorage.setItem("currentUser", JSON.stringify(matchedUser));
-  console.log("✅ LOGIN SUCCESS");
 
-  window.location.href =
-    matchedUser.type === "citizen" ? "citizen.html" : "dealer.html";
+if (matchedUser.type === "citizen") {
+  window.location.href = "citizen.html";
+}
+else if (matchedUser.type === "lpgDealer") {
+  window.location.href = "dealer-lpg.html";
+}
+else if (matchedUser.type === "fuelDealer") {
+  window.location.href = "fuel-dealer.html";
+}
 });
 </script></body>
 </html>

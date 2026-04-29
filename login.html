@@ -8,11 +8,7 @@
  
 </head>
 <body>
-  <script>
-if (!localStorage.getItem("users")) {
-  localStorage.setItem("users", JSON.stringify([]));
-}
-</script>
+  
      <header class="navbar">
         <div class="logo">RF <span>ResFlow</span></div>
         <button class="home-btn">← Home</button>
@@ -24,13 +20,13 @@ if (!localStorage.getItem("users")) {
            <h2><span><img src="./Images/waves.png" alt="ResFlow icon" class="res-icon"> </span><span>ResFlow</span></h2>
            <h3>Sign In</h3>
            <p class="subtitle">Access your resource management dashboard</p>
-          <form onsubmit="login(event)">
+          <form>
             
               <div class="form-group">
-                  <label>Email</label> <br>
+                  <label for="loginEmail">Email</label> <br>
                   <input type="email" placeholder="Enter Registered ID" id="loginEmail">
                    <br>
-                  <label>Password </label> <br>
+                  <label for="loginPassword">Password </label> <br>
                   <input type="password" placeholder="Enter Password" id="loginPassword"> 
                </div>
               
@@ -48,7 +44,7 @@ if (!localStorage.getItem("users")) {
   </label>
 </div>
               </div>
-              <button type="submit" class="submit-btn" >Sign In</button>
+              <button type=button class="submit-btn" id="signin">Sign In</button>
 
               <p class="signin">
                     Don't have an account? <a href="register.html">Register here</a>
@@ -59,35 +55,41 @@ if (!localStorage.getItem("users")) {
         </div>
     </div>
 <script>
-function login(event) {
-  event.preventDefault(); // ⛔ STOP RELOAD
+document.getElementById("signin").addEventListener("click", function () {
 
   const email = document.getElementById("loginEmail").value.trim();
   const password = document.getElementById("loginPassword").value.trim();
   const userType = document.querySelector('input[name="atype"]:checked');
 
-  if (!email || !password || !userType) {
-    console.log("Missing fields");
+  console.log("INPUT:", email, password, userType?.value);
+
+  const users = JSON.parse(localStorage.getItem("users"));
+  console.log("USERS IN STORAGE:", users);
+
+  if (!users || users.length === 0) {
+    console.log("❌ USERS EMPTY OR MISSING");
     return;
   }
 
-  const users = JSON.parse(localStorage.getItem("users")) || [];
-
   const matchedUser = users.find(
-    u => u.email === email &&
-         u.password === password &&
-         u.type === userType.value
+    u =>
+      u.email === email &&
+      u.password === password &&
+      u.type === userType.value
   );
 
+  console.log("MATCHED USER:", matchedUser);
+
   if (!matchedUser) {
-    console.log("Invalid credentials");
+    console.log("❌ INVALID CREDENTIALS");
     return;
   }
 
   localStorage.setItem("currentUser", JSON.stringify(matchedUser));
+  console.log("✅ LOGIN SUCCESS");
 
   window.location.href =
     matchedUser.type === "citizen" ? "citizen.html" : "dealer.html";
-}
+});
 </script></body>
 </html>

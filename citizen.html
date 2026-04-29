@@ -295,7 +295,7 @@ function bookFuel() {
     return;
   }
 
-  const booking = {
+  const  newBooking= {
     bookingId: "FUEL" + Math.floor(100000 + Math.random() * 900000),
     type: "fuel",
     fuelType,
@@ -308,8 +308,12 @@ function bookFuel() {
     bookingDate: new Date().toISOString().split("T")[0]
   };
 
-  bookings.push(booking);
+  const exists = bookings.some(b => b.bookingId === newBooking.bookingId);
+
+if (!exists) {
+  bookings.push(newBooking);
   localStorage.setItem("bookings", JSON.stringify(bookings));
+}
 
   // ✅ FAST DELIVERY SUCCESS MESSAGE
   showFuelResult(
@@ -317,7 +321,7 @@ function bookFuel() {
      <b>Fuel:</b> ${fuelType.toUpperCase()}<br>
      <b>Litres:</b> ${litres}<br>
      <b>Delivery:</b> Same Day / Fast Track<br>
-     <b>Booking ID:</b> ${booking.bookingId}<br>
+     <b>Booking ID:</b> ${newBooking.bookingId}<br>
      <b>Status:</b> Pending`,
     true
   );

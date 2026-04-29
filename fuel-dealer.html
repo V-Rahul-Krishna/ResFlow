@@ -38,7 +38,6 @@
           <th>#</th>
           <th>User Name</th>
           <th>User ID</th>
-          <th>Address</th>
           <th>Fuel Type</th>
           <th>Litres</th>
           <th>Status</th>
@@ -76,7 +75,7 @@ document.getElementById("fuelDealerWelcome").innerText =
 /* =========================
    LOAD BOOKINGS
 ========================= */
-const bookings = JSON.parse(localStorage.getItem("fuelBookings")) || [];
+const bookings = JSON.parse(localStorage.getItem("bookings")) || [];
 const table = document.getElementById("fuelTable");
 
 /* FIFO — no sorting */

@@ -11,7 +11,7 @@
   
      <header class="navbar">
        <h2 class="nav-logo"><span><img src="./Images/waves.png" alt="ResFlow icon" class="res-icon"> </span><span>ResFlow</span></h2>
-        <button class="home-btn">← Home</button>
+        <a href="./index.html"><button type="button" class="home-btn">← Home</button></a>
     </header>
     
     
@@ -101,10 +101,10 @@ document.getElementById("signin").addEventListener("click", function () {
 if (matchedUser.type === "citizen") {
   window.location.href = "citizen.html";
 }
-else if (matchedUser.type === "lpgDealer") {
-  window.location.href = "dealer-lpg.html";
+else if (matchedUser.type === "dealer_lpg") {
+  window.location.href = "dealer_lpg.html";
 }
-else if (matchedUser.type === "fuelDealer") {
+else if (matchedUser.type === "dealer_fuel") {
   window.location.href = "fuel-dealer.html";
 }
 });

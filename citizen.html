@@ -129,7 +129,7 @@
   <!-- Result -->
   <div id="fuelResult"></div>
 </div>
-</div>f
+</div>
 
   <footer class="footer">
     <div class="footer-inner">
@@ -256,5 +256,95 @@ function getExpectedDate(priority) {
   d.setDate(d.getDate() + days);
   return d.toISOString().split("T")[0];
 }
-</script></body>
+function bookFuel() {
+  const fuelType = document.getElementById("fuelType").value;
+  const litres = Number(document.getElementById("litres").value);
+  const error = document.getElementById("litreError");
+
+  error.innerText = "";
+
+  if (!fuelType) {
+    error.innerText = "Please select fuel type";
+    return;
+  }
+
+  if (!litres || litres < 1 || litres > 3) {
+    error.innerText = "Fuel limit is 1 to 3 litres only";
+    return;
+  }
+
+  const user = JSON.parse(localStorage.getItem("currentUser"));
+  if (!user) {
+    window.location.href = "login.html";
+    return;
+  }
+
+  let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+
+  // 🔒 Prevent duplicate pending fuel booking
+  const alreadyPending = bookings.some(
+    b =>
+      b.userId === user.id &&
+      b.type === "fuel" &&
+      b.fuelType === fuelType &&
+      b.status === "Pending"
+  );
+
+  if (alreadyPending) {
+    showFuelResult("⚠️ You already have a pending fuel booking", false);
+    return;
+  }
+
+  const booking = {
+    bookingId: "FUEL" + Math.floor(100000 + Math.random() * 900000),
+    type: "fuel",
+    fuelType,
+    litres,
+    userId: user.id,
+    userName: user.name,
+    address: user.address || "Registered Address",
+    status: "Pending",
+    deliveryType: "Fast",
+    bookingDate: new Date().toISOString().split("T")[0]
+  };
+
+  bookings.push(booking);
+  localStorage.setItem("bookings", JSON.stringify(bookings));
+
+  // ✅ FAST DELIVERY SUCCESS MESSAGE
+  showFuelResult(
+    `🚀 <b>Fuel Booking Successful!</b><br><br>
+     <b>Fuel:</b> ${fuelType.toUpperCase()}<br>
+     <b>Litres:</b> ${litres}<br>
+     <b>Delivery:</b> Same Day / Fast Track<br>
+     <b>Booking ID:</b> ${booking.bookingId}<br>
+     <b>Status:</b> Pending`,
+    true
+  );
+
+  document.getElementById("fuelForm").reset();
+}
+
+/* ===============================
+   RESULT DISPLAY (NO ALERTS)
+================================ */
+function showFuelResult(message, success) {
+  const result = document.getElementById("fuelResult");
+
+  result.innerHTML = `
+    <div style="
+      margin-top:16px;
+      padding:14px;
+      border-radius:8px;
+      background:${success ? "#e6f9f3" : "#fff3cd"};
+      border:1.5px solid ${success ? "#00b37e" : "#ff9800"};
+      color:#064e3b;
+      font-size:14px;
+    ">
+      ${message}
+    </div>
+  `;
+}
+
+</script>></body>
 </html>

@@ -8,6 +8,11 @@
  
 </head>
 <body>
+  <script>
+if (!localStorage.getItem("users")) {
+  localStorage.setItem("users", JSON.stringify([]));
+}
+</script>
      <header class="navbar">
         <div class="logo">RF <span>ResFlow</span></div>
         <button class="home-btn">← Home</button>
@@ -19,25 +24,31 @@
            <h2><span><img src="./Images/waves.png" alt="ResFlow icon" class="res-icon"> </span><span>ResFlow</span></h2>
            <h3>Sign In</h3>
            <p class="subtitle">Access your resource management dashboard</p>
-          <form>
+          <form onsubmit="login(event)">
             
               <div class="form-group">
-                  <label>Mobile / Aadhar / Email</label> <br>
-                  <input type="text" placeholder="Enter Registered ID">
+                  <label>Email</label> <br>
+                  <input type="email" placeholder="Enter Registered ID" id="loginEmail">
                    <br>
                   <label>Password </label> <br>
-                  <input type="password" placeholder="Enter Password"> 
+                  <input type="password" placeholder="Enter Password" id="loginPassword"> 
                </div>
               
                <div class="form-group full">
                     <label>Sign in as</label>
-                    <div class="account-types">
-                        <div class="type active">👤 Citizen</div>
-                        <div class="type">🏪 Dealer</div>
-                        <div class="type">🏥 Hospital</div>
-                    </div>
+                    <div class="account-type">
+  <label class="option">
+    <input type="radio" name="atype" value="citizen">
+    <span>Citizen 👤</span>
+  </label>
+
+  <label class="option">
+    <input type="radio" name="atype" value="dealer">
+    <span>Dealer 🏪</span>
+  </label>
+</div>
               </div>
-              <button class="submit-btn">Sign In</button>
+              <button type="submit" class="submit-btn" >Sign In</button>
 
               <p class="signin">
                     Don't have an account? <a href="register.html">Register here</a>
@@ -47,5 +58,37 @@
           </form>
         </div>
     </div>
-    
-</body>
+<script>
+function login(event) {
+  event.preventDefault(); // ⛔ STOP RELOAD
+
+  const email = document.getElementById("loginEmail").value.trim();
+  const password = document.getElementById("loginPassword").value.trim();
+  const userType = document.querySelector('input[name="atype"]:checked');
+
+  if (!email || !password || !userType) {
+    console.log("Missing fields");
+    return;
+  }
+
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+
+  const matchedUser = users.find(
+   u =>
+      u.email.toLowerCase() === email.toLowerCase() &&
+      u.password.trim() === password &&
+      u.type === userType.value
+  );
+
+  if (!matchedUser) {
+    console.log("Invalid credentials");
+    return;
+  }
+
+  localStorage.setItem("currentUser", JSON.stringify(matchedUser));
+
+  window.location.href =
+    matchedUser.type === "citizen" ? "citizen.html" : "dealer.html";
+}
+</script></body>
+</html>

@@ -1,303 +1,376 @@
-/* =============================================
-   ResFlow – Citizen Dashboard Stylesheet
-   Student Project | Basic Clean Design
-   ============================================= */
- 
- 
-/* ===== RESET & BASE ===== */
-/* Remove default browser spacing */
+/* =================================================
+   ResFlow – Citizen Dashboard (Final CSS)
+   Clean • Professional • Student Project
+   ================================================= */
+
+/* ===== RESET ===== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
- 
-/* Body background and font */
+
+/* ===== BASE ===== */
 body {
-  background-color: #f0f4f8;
-  font-family: Arial, sans-serif;
-  color: #333333;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f0f4f8;
+  color: #1a2035;
   min-height: 100vh;
-  padding: 20px;
 }
- 
- 
-/* ===== WRAPPER ===== */
-/* Centers everything and limits max width */
-.wrapper {
-  max-width: 700px;
-  margin: 0 auto;
-}
- 
- 
-/* ===== HEADER ===== */
-/* Top bar with logo and role badge */
-.header {
-  background-color: #1a56db;
-  color: white;
-  padding: 14px 20px;
-  border-radius: 10px;
+
+/* ===== TOP NAV ===== */
+.dash-nav {
+  background: linear-gradient(to right, #0f172a, #1e3a8a);
+  color: #fff;
+  padding: 14px 22px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  margin-bottom: 24px;
+  align-items: center;
+  margin-bottom: 26px;
 }
- 
-/* Logo area: flag icon + text side by side */
-.logo-area {
+
+.logo {
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.logo span:first-child {
+  background: #fff;
+  background: linear-gradient(to right, #0f172a, #1e3a8a);
+  padding: 4px 7px;
+  border-radius: 6px;
+  margin-right: 6px;
+}
+
+.nav-right {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
 }
- 
-.logo-icon {
-  font-size: 32px;
-}
- 
-/* Site name text */
-.site-title {
-  font-size: 20px;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
- 
-.site-sub {
-  font-size: 11px;
-  opacity: 0.8;
-}
- 
-/* Role badge pill on the right side */
-.role-badge {
-  background-color: rgba(255, 255, 255, 0.2);
+
+.home-btn {
+  background: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.4);
-  padding: 5px 14px;
-  border-radius: 20px;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 18px;
+  cursor: pointer;
   font-size: 13px;
-  font-weight: bold;
 }
- 
- 
+
+.home-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
 /* ===== PAGE TITLE ===== */
 .page-title {
   font-size: 22px;
   font-weight: bold;
-  color: #1a2035;
   margin-bottom: 6px;
 }
- 
+
 .page-desc {
   font-size: 14px;
-  color: #666;
+  color: #555;
   margin-bottom: 22px;
 }
- 
- 
-/* ===== MAIN CARD ===== */
-/* White box that wraps the form */
+
+/* ===== CARD ===== */
 .card {
-  background-color: #ffffff;
+  max-width: 600px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 26px;
   border: 1px solid #dde3f0;
-  border-radius: 10px;
-  padding: 28px;
-  margin-bottom: 24px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
- 
-/* Card section title */
+
+/* Card Title */
 .card-title {
   font-size: 17px;
   font-weight: bold;
-  color: #1a2035;
   margin-bottom: 22px;
   padding-bottom: 12px;
   border-bottom: 1px solid #eef1f8;
 }
- 
- 
-/* ===== FORM ELEMENTS ===== */
- 
-/* Wrapper for each label + input pair */
+
+/* ===== FORM ===== */
 .form-group {
   margin-bottom: 18px;
 }
- 
-/* Label above each input */
+/* ===== PAGE HEADER ===== */
+.page-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: 30px;
+  color: #1f2933;
+}
+
+.page-desc {
+  text-align: center;
+  font-size: 15px;
+  margin: 10px 0 30px;
+  color: #52606d;
+}
+
+/* ===== CENTER CARD ===== */
+.card {
+  max-width: 420px;
+  margin: 0 auto;              /* center horizontally */
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== CARD TITLES ===== */
+.card-title {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.card h3:not(.card-title) {
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #334e68;
+}
+
+/* ===== FORM ===== */
+#lpgForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#lpgForm input {
+  padding: 12px;
+  font-size: 15px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  outline: none;
+}
+
+#lpgForm input:focus {
+  border-color: #2563eb;
+}
+
+/* ===== BUTTON ===== */
+#lpgForm button {
+  margin-top: 10px;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#lpgForm button:hover {
+  background-color: #1d4ed8;
+}
+
+/* ===== RESULT TEXT ===== */
+#result {
+  text-align: center;
+  margin-top: 15px;
+  font-weight: bold;
+}
 .form-label {
   display: block;
   font-size: 13px;
-  font-weight: bold;
+  font-weight: 600;
   color: #444;
   margin-bottom: 6px;
 }
- 
-/* Text/number input box */
+
 .form-input {
   width: 100%;
-  padding: 10px 13px;
+  padding: 11px 13px;
   border: 1.5px solid #cdd5e0;
-  border-radius: 7px;
+  border-radius: 8px;
   font-size: 14px;
-  color: #222;
-  background-color: #fafbff;
+  background: #fafbff;
   outline: none;
   transition: border-color 0.2s;
 }
- 
-/* Highlight input border when user clicks on it */
+
 .form-input:focus {
   border-color: #1a56db;
-  background-color: #fff;
+  background: #fff;
 }
- 
-/* Red border if input has error */
-.form-input.error {
-  border-color: #e63757;
-}
- 
-/* Small red error text shown below input */
+
+/* Error */
 .error-msg {
   display: block;
   font-size: 12px;
   color: #e63757;
   margin-top: 4px;
-  min-height: 16px; /* Keeps layout stable even when empty */
+  min-height: 14px;
 }
- 
- 
-/* ===== BOOK BUTTON ===== */
+
+/* ===== BUTTON ===== */
 .book-btn {
   width: 100%;
+  margin-top: 6px;
   padding: 13px;
-  background-color: #1a56db;
-  color: white;
+  background: #1a56db;
+  color: #fff;
+  border: none;
+  border-radius: 9px;
   font-size: 15px;
   font-weight: bold;
-  border: none;
-  border-radius: 8px;
   cursor: pointer;
-  margin-top: 6px;
-  transition: background-color 0.2s, transform 0.1s;
+  transition: background 0.2s, transform 0.1s;
 }
- 
-/* Hover effect */
+
 .book-btn:hover {
-  background-color: #1040b0;
+  background: #1040b0;
 }
- 
-/* Click press effect */
+
 .book-btn:active {
   transform: scale(0.98);
 }
- 
-/* Disabled state after successful booking */
+
 .book-btn:disabled {
-  background-color: #9ab0e8;
+  background: #9ab0e8;
   cursor: not-allowed;
 }
- 
- 
+
 /* ===== CONFIRMATION BOX ===== */
-/* Hidden by default; shown by JS after successful booking */
 .confirm-box {
-  display: none;               /* Hidden initially */
-  align-items: flex-start;
-  gap: 14px;
+  display: none;
   margin-top: 22px;
-  background-color: #e6f9f3;
-  border: 1.5px solid #00b37e;
-  border-radius: 9px;
   padding: 16px 18px;
+  background: #e6f9f3;
+  border: 1.5px solid #00b37e;
+  border-radius: 10px;
+  gap: 14px;
+  align-items: flex-start;
 }
- 
-/* When JS adds class 'show', make it flex (visible) */
+
 .confirm-box.show {
   display: flex;
 }
- 
-/* Big green checkmark icon */
+
 .confirm-icon {
   font-size: 28px;
-  flex-shrink: 0;
 }
- 
-/* "Booking Confirmed!" bold text */
+
 .confirm-title {
   font-size: 15px;
   font-weight: bold;
   color: #007f59;
   margin-bottom: 4px;
 }
- 
-/* Detail line: income, members info */
+
 .confirm-detail {
   font-size: 13px;
   color: #2d5a4a;
-  margin-bottom: 3px;
 }
- 
-/* Reference ID line */
+
 .confirm-ref {
   font-size: 12px;
   color: #5a7a6a;
   font-style: italic;
 }
- 
- 
 
-/* Emoji icon at top of card */
-.info-icon {
-  font-size: 24px;
-  margin-bottom: 6px;
-}
- 
-/* Label text */
-.info-label {
-  font-size: 11px;
-  color: #888;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 4px;
-}
- 
-/* Value text */
-.info-value {
-  font-size: 13px;
-  font-weight: bold;
-  color: #1a2035;
-}
- 
- 
-/* ===== FOOTER ===== */
-.footer {
-  text-align: center;
-  font-size: 12px;
-  color: #999;
-  padding: 14px 0;
-  border-top: 1px solid #e0e5f0;
-}
- 
- 
-/* ===== RESPONSIVE – smaller screens ===== */
-@media (max-width: 500px) {
- 
-  /* Stack info cards vertically on mobile */
-  .info-row {
-    flex-direction: column;
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  body {
+    padding: 14px;
   }
- 
-  /* Smaller header text */
-  .site-title {
-    font-size: 16px;
-  }
- 
-  /* Hide role badge on very small screens */
-  .role-badge {
-    display: none;
-  }
- 
-  /* Adjust card padding */
+
   .card {
     padding: 18px;
+  }
+
+  .page-title {
+    font-size: 18px;
+  }
+
+  .nav-right h3 {
+    display: none;
+  }
+}
+.footer {
+      background: linear-gradient(to right, #0f172a, #1e3a8a);
+
+    color: rgba(255, 255, 255, 0.5);
+    padding: 40px 24px 24px;
+    margin-top: auto;
+}
+.footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 32px;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
+.footer-brand {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+}
+.footer-govt {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.25);
+}
+.footer-col a {
+    display: block;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 8px;
+    transition: color 0.15s;
+    text-decoration: none;
+}
+
+.footer-brand-sub {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.35);
+    line-height: 1.6;
+}
+@media (max-width: 900px) {
+
+  .header {
+    grid-template-columns: 1fr;
+  }
+
+  .services-container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .grid-4 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
   }
 }

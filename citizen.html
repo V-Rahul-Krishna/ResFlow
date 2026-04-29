@@ -1,65 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Citizen Dashboard - ResFlow</title>
-  <link rel="stylesheet" href="citizen.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ResFlow – Citizen Dashboard</title>
+  <link rel="stylesheet" href="citizen.css" />
 </head>
+
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <h2>ResFlow</h2>
-    <ul>
-      <li>Dashboard</li>
-      <li>Book Resource</li>
-      <li>History</li>
-      <li>Logout</li>
-    </ul>
-  </nav>
-
-  <div class="container">
-
-    <!-- WELCOME -->
-    <section class="welcome">
-      <h1>Welcome, Sivaganesh 👋</h1>
-      <p>Priority Tier: <span class="tier">T2</span></p>
-    </section>
-
-    <!-- PROFILE SUMMARY -->
-    <section class="card">
-      <h2>Your Profile</h2>
-      <p>Family Size: 4</p>
-      <p>Location: Chennai</p>
-      <p>Category: BPL</p>
-    </section>
-
-    <!-- ALLOCATION DETAILS (CORE FEATURE) -->
-    <section class="card highlight">
-      <h2>Your Allocation (Today)</h2>
-      <p>LPG: 1 Cylinder</p>
-      <p>Petrol: 5 Litres</p>
-      <p>Diesel: 3 Litres</p>
-      <p>Time Slot: 10 AM – 12 PM</p>
-    </section>
-
-    <!-- USAGE SNAPSHOT -->
-    <section class="card">
-      <h2>Recent Usage</h2>
-      <ul>
-        <li>Petrol - 3 Litres (Last week)</li>
-        <li>LPG - 1 Cylinder (15 days ago)</li>
-      </ul>
-    </section>
-
-    <!-- ACTIONS -->
-    <section class="actions">
-      <button>Book Resource</button>
-      <button>View History</button>
-      <button>Raise Complaint</button>
-    </section>
-
+  <!-- ===== TOP NAV ===== -->
+  <div class="dash-nav">
+    <div class="logo">
+      <span>RF</span> <strong>ResFlow</strong>
+    </div>
+    <div class="nav-right">
+      <h3 id="welcome"></h3>
+      <button class="home-btn" onclick="logout()">← Logout</button>
+    </div>
   </div>
 
-</body>
+  <!-- ===== PAGE TITLE ===== -->
+  <h2 class="page-title">Citizen Dashboard</h2>
+  <p class="page-desc">
+    Enter your family details to book an LPG cylinder.
+  </p>
+
+  <!-- ===== MAIN CARD ===== -->
+  <div class="card">
+    <h3 class="card-title">📋 LPG Booking Form</h3>
+
+    <h3>Book LPG Cylinder</h3>
+
+<form >
+  <input type="number" id="income" placeholder="Family Income" required><br><br>
+  <input type="number" id="members" placeholder="Family Members" required><br><br>
+
+  <button type="button" class="book-btn" onclick="bookLPG()">Book LPG</button>
+</form>
+
+<p id="result"></p></div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand">ResFlow</div>
+          <div class="footer-brand-sub">Unified Essential Resource Distribution &amp; Crisis Management Platform. An initiative under the Ministry of Petroleum &amp; Natural Gas, Government of India.</div>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="#">LPG Distribution</a>
+          <a href="#">Petrol &amp; Diesel</a>
+          <a href="#">Medical Oxygen</a>
+          <a href="#">Emergency Reserves</a>
+        </div>
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <a href="#">Citizen Portal</a>
+          <a href="#">Dealer Portal</a>
+          <a href="#">Hospital Access</a>
+          <a href="#">Admin Console</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">RTI</a>
+          <a href="#">Accessibility</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-govt">© 2024 Government of India. Ministry of Petroleum &amp; Natural Gas. All rights reserved.</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.25);">Version 2.1.0 | NIC Hosted | WCAG 2.1 AA Compliant</div>
+      </div>
+    </div>
+  </footer>  
+
+
+  <script>
+    const user = JSON.parse(localStorage.getItem("CurrentUser"));
+
+if (!user || user.type !== "citizen") {
+  window.location.href = "login.html";
+}
+
+document.getElementById("welcome").innerText =
+  `Welcome ${user.name} (ID: ${user.id})`;
+
+function bookLPG() {
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  if (!currentUser) {
+    alert("Login required");
+    return;
+  }
+
+  const income = Number(document.getElementById("income").value);
+  const members = Number(document.getElementById("members").value);
+
+  let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+
+  // 🔒 PREVENT DUPLICATE LPG
+  const alreadyPending = bookings.some(b =>
+    b.userId === currentUser.id &&
+    b.type === "lpg" &&
+    b.status === "Pending"
+  );
+
+  if (alreadyPending) {
+    alert("You already have a pending LPG booking");
+    return;
+  }
+
+  // 🔢 Priority logic (simple & deterministic)
+  const incomeWeight = Math.max(0, (30000 - income) / 10000);
+const priority = (members * 2) + incomeWeight;
+
+  const booking = {
+    bookingId: "BKG" + Math.floor(1000 + Math.random() * 9000),
+    userId: currentUser.id,
+    userName: currentUser.name,
+    type: "lpg",
+    income,
+    familyMembers: members,
+    priority: priority.toFixed(2),
+    status: "Pending",
+    bookingDate: new Date().toISOString().split("T")[0],
+    expectedDate: getExpectedDate(priority)
+  };
+
+  bookings.push(booking);
+
+  localStorage.setItem("bookings", JSON.stringify(bookings));
+
+  const result = document.getElementById("result");
+
+result.innerHTML = `
+  <div style="
+    margin-top:16px;
+    padding:14px;
+    border-radius:8px;
+    background:#e6f9f3;
+    border:1.5px solid #00b37e;
+    color:#064e3b;
+    font-size:14px;
+  ">
+    <strong>✅ Booking Confirmed</strong><br><br>
+    <b>Booking ID:</b> ${booking.bookingId}<br>
+    <b>Priority Score:</b> ${booking.priority}<br>
+    <b>Expected Delivery:</b> ${booking.expectedDate}<br>
+    <b>Status:</b> ${booking.status}
+  </div>
+`;
+}
+
+function getExpectedDate(priority) {
+  const days = priority >= 8 ? 2 : priority >= 6 ? 4 : 7;
+  const d = new Date();
+  d.setDate(d.getDate() + days);
+  return d.toISOString().split("T")[0];
+}
+</script></body>
 </html>

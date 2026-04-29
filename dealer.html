@@ -15,122 +15,35 @@
         <div class="nav-right">
     <h2>Dealer Dashboard</h2>
     <button class="home-btn">← Logout</button>
-    </div>
-    
-    
+        </div>
   </div>
 
   <!-- Welcome -->
   <section class="welcome">
-    <h1>Welcome, <span>Agent Ravi</span></h1>
-    <p>Metro Fuel Station, T Nagar – Chennai</p>
+    <h2 id="dealerWelcome"></h2>
     <p>Manage today’s stock levels and incoming orders</p>
   </section>
 
-  <!-- Stock Cards -->
-  <section class="dash-section">
-    <h3>Current Stock Status</h3>
-
-    <div class="stock-card">
-      <div class="stock-head">
-        <strong>LPG</strong>
-        <span class="low-text">Low</span>
-      </div>
-      <div class="stock-bar">
-        <div class="stock-fill low" style="width: 28%;"></div>
-      </div>
-      <div class="stock-foot">28% remaining</div>
-    </div>
-
-    <div class="stock-card">
-      <div class="stock-head">
-        <strong>Oxygen</strong>
-        <span class="ok-text">Normal</span>
-      </div>
-      <div class="stock-bar">
-        <div class="stock-fill normal" style="width: 65%;"></div>
-      </div>
-      <div class="stock-foot">65% remaining</div>
-    </div>
-  </section>
-
+  
   <!-- Incoming Orders -->
   <section class="dash-section">
     <h3>Incoming Orders</h3>
 
     <div class="table-card">
-      <table>
-        <thead>
-          <tr>
-            <th>Order ID</th>
-            <th>Customer</th>
-            <th>Resource</th>
-            <th>Requested Time</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>ORD-201</td>
-            <td>Rajesh Kumar</td>
-            <td>LPG</td>
-            <td>10:30 AM</td>
-            <td><span class="badge pending">Pending</span></td>
-          </tr>
-          <tr>
-            <td>ORD-202</td>
-            <td>Priya Devi</td>
-            <td>Oxygen</td>
-            <td>10:50 AM</td>
-            <td><span class="badge approved">Approved</span></td>
-          </tr>
-          <tr>
-            <td>ORD-203</td>
-            <td>Suresh M</td>
-            <td>LPG</td>
-            <td>11:10 AM</td>
-            <td><span class="badge pending">Pending</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-    <section class="dash-section">
-    <h3>Fuel Fast Delivery Orders</h3>
-    <p class="note">Fuel deliveries are processed immediately (no scheduling)</p>
+<h3>LPG Booking Queue</h3>
 
-    <div class="table-card">
-      <table>
-        <thead>
-          <tr>
-            <th>Order ID</th>
-            <th>Customer</th>
-            <th>Fuel Type</th>
-            <th>Requested Time</th>
-            <th>Delivery Mode</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>FUEL-401</td>
-            <td>Suresh M</td>
-            <td>Petrol</td>
-            <td>10:45 AM</td>
-            <td>Fast</td>
-            <td><span class="badge approved">Dispatched</span></td>
-          </tr>
-          <tr>
-            <td>FUEL-402</td>
-            <td>Anitha R</td>
-            <td>Diesel</td>
-            <td>11:05 AM</td>
-            <td>Fast</td>
-            <td><span class="badge pending">Processing</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+<table>
+  <thead>
+    <tr>
+      <th>Priority</th>
+      <th>Citizen Name</th>
+      <th>Citizen ID</th>
+      <th>Income</th>
+      <th>Members</th>
+    </tr>
+  </thead>
+  <tbody id="dealerTable"></tbody>
+</table>    </div>
   </section>
 
  <footer class="footer">
@@ -169,6 +82,31 @@
     </div>
   </footer>
  
+<script>
+  const user = JSON.parse(localStorage.getItem("userData"));
 
+if (!user || user.type !== "dealer") {
+  window.location.href = "login.html";
+}
+
+document.getElementById("dealerWelcome").innerText =
+  `Welcome ${user.name} (ID: ${user.id})`;
+const bookings = JSON.parse(localStorage.getItem("lpgBookings")) || [];
+const table = document.getElementById("dealerTable");
+
+bookings.forEach((b, index) => {
+  const row = document.createElement("tr");
+
+  row.innerHTML = `
+    <td>${index + 1}</td>
+    <td>${b.citizenName}</td>
+    <td>${b.citizenId}</td>
+    <td>${b.income}</td>
+    <td>${b.members}</td>
+  `;
+
+  table.appendChild(row);
+});
+</script>
 </body>
 </html>

@@ -85,10 +85,22 @@ body {
   color: #555;
   margin-bottom: 22px;
 }
+.maincontainer
+{
+  display: flex;
 
+
+}
+.card
+{
+  flex-basis:50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 /* ===== CARD ===== */
 .card {
-  max-width: 600px;
+  max-width: 100px;
   background: #fff;
   border-radius: 12px;
   padding: 26px;

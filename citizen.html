@@ -23,7 +23,7 @@
   <p class="page-desc">
     Enter your family details to book an LPG cylinder.
   </p>
-
+<div class="maincontainer">
   <!-- ===== MAIN CARD ===== -->
   <div class="card">
     <h3 class="card-title">📋 LPG Booking Form</h3>
@@ -61,7 +61,7 @@
     <label class="form-label">Ration Card Number</label>
     <input
       type="text"
-      id="rationNumber"
+      id="rationNo"
       class="form-input"
       placeholder="TN-12-1234-567890"
       required
@@ -89,6 +89,47 @@
 </form>
 
 <p id="result"></p></div>
+<div class="card">
+  <h3 class="card-title">⛽ Fuel Booking Form</h3>
+
+  <form id="fuelForm">
+
+    <!-- Fuel Type -->
+    <div class="form-group">
+      <label class="form-label">Select Fuel Type</label>
+      <select id="fuelType" class="form-input" required>
+        <option value="">-- Select Fuel --</option>
+        <option value="petrol">Petrol</option>
+        <option value="diesel">Diesel</option>
+      </select>
+    </div>
+
+    <!-- Litres -->
+    <div class="form-group">
+      <label class="form-label">Number of Litres (Max: 3)</label>
+      <input
+        type="number"
+        id="litres"
+        class="form-input"
+        placeholder="Enter litres (e.g. 2)"
+        min="1"
+        max="3"
+        required
+      />
+      <span class="error-msg" id="litreError"></span>
+    </div>
+
+    <!-- Button -->
+    <button type="button" class="book-btn" onclick="bookFuel()">
+      🚀 Book Fuel
+    </button>
+
+  </form>
+
+  <!-- Result -->
+  <div id="fuelResult"></div>
+</div>
+</div>f
 
   <footer class="footer">
     <div class="footer-inner">
@@ -119,6 +160,7 @@
           <a href="#">Accessibility</a>
         </div>
       </div>
+      
       <div class="footer-bottom">
         <div class="footer-govt">© 2024 Government of India. Ministry of Petroleum &amp; Natural Gas. All rights reserved.</div>
         <div style="font-size:12px;color:rgba(255,255,255,0.25);">Version 2.1.0 | NIC Hosted | WCAG 2.1 AA Compliant</div>
@@ -146,37 +188,42 @@ function bookLPG() {
 
   const income = Number(document.getElementById("income").value);
   const members = Number(document.getElementById("members").value);
+const rationNo = document.getElementById("rationNo").value.trim();
+const rationType = document.getElementById("rationType").value;
 
+if (!rationNo || !rationType) {
+  return;
+}
   let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
 
   // 🔒 PREVENT DUPLICATE LPG
-  const alreadyPending = bookings.some(b =>
-    b.userId === currentUser.id &&
+  const alreadyPending = bookings.some(
+  b =>
+    b.rationCardNumber === rationNo &&
     b.type === "lpg" &&
     b.status === "Pending"
-  );
+);
 
-  if (alreadyPending) {
-    alert("You already have a pending LPG booking");
-    return;
-  }
-
+if (alreadyPending) {
+  return;
+}
   // 🔢 Priority logic (simple & deterministic)
   const incomeWeight = Math.max(0, (30000 - income) / 10000);
 const priority = (members * 2) + incomeWeight;
 
   const booking = {
-    bookingId: "BKG" + Math.floor(1000 + Math.random() * 9000),
-    userId: currentUser.id,
-    userName: currentUser.name,
-    type: "lpg",
-    income,
-    familyMembers: members,
-    priority: priority.toFixed(2),
-    status: "Pending",
-    bookingDate: new Date().toISOString().split("T")[0],
-    expectedDate: getExpectedDate(priority)
-  };
+  bookingId: "BKG" + Math.floor(1000 + Math.random() * 9000),
+  userId: currentUser.id,
+  userName: currentUser.name,
+
+  rationCardNumber: rationNo,
+  rationCardType: rationType, // PHH / AAY / NPHH
+
+  priority,
+  status: "Pending",
+  bookingDate: new Date().toISOString().split("T")[0],
+  expectedDate: getExpectedDate(priority)
+};
 
   bookings.push(booking);
 

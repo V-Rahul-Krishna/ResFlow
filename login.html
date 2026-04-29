@@ -30,20 +30,31 @@
                   <input type="password" placeholder="Enter Password" id="loginPassword"> 
                </div>
               
-               <div class="form-group full">
-                    <label>Sign in as</label>
-                    <div class="account-type">
-  <label class="option">
-    <input type="radio" name="atype" value="citizen">
-    <span>Citizen 👤</span>
-  </label>
+<div class="form-group full">
+  <label>Sign in as</label>
 
-  <label class="option">
-    <input type="radio" name="atype" value="dealer">
-    <span>Dealer 🏪</span>
-  </label>
+  <div class="account-type">
+
+    <!-- Citizen -->
+    <label class="option">
+      <input type="radio" name="atype" value="citizen">
+      <span>Citizen 👤</span>
+    </label>
+
+    <!-- LPG Dealer -->
+    <label class="option">
+      <input type="radio" name="atype" value="dealer_lpg">
+      <span>LPG Dealer 🔥</span>
+    </label>
+
+    <!-- Fuel Dealer -->
+    <label class="option">
+      <input type="radio" name="atype" value="dealer_fuel">
+      <span>Fuel Dealer ⛽</span>
+    </label>
+
+  </div>
 </div>
-              </div>
               <button type=button class="submit-btn" id="signin">Sign In</button>
 
               <p class="signin">

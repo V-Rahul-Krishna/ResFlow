@@ -127,21 +127,31 @@ if (!localStorage.getItem("users")) {
 </div>
 
 
-                <div class="form-group full">
-                    <label>Account Type</label>
-                    <div class="account-type">
-  <label class="option">
-    <input type="radio" name="atype" value="citizen">
-    <span>Citizen 👤</span>
-  </label>
+<div class="form-group full">
+  <label>Account Type</label>
 
-  <label class="option">
-    <input type="radio" name="atype" value="dealer">
-    <span>Dealer 🏪</span>
-  </label>
+  <div class="account-type">
+
+    <!-- Citizen -->
+    <label class="option">
+      <input type="radio" name="atype" value="citizen">
+      <span>Citizen 👤</span>
+    </label>
+
+    <!-- LPG Dealer -->
+    <label class="option">
+      <input type="radio" name="atype" value="dealer_lpg">
+      <span>LPG Dealer 🔥</span>
+    </label>
+
+    <!-- Fuel Dealer -->
+    <label class="option">
+      <input type="radio" name="atype" value="dealer_fuel">
+      <span>Fuel Dealer ⛽</span>
+    </label>
+
+  </div>
 </div>
-                    
-                </div>
 
                 <div class="form-group full">
                     <label>Create Password</label>

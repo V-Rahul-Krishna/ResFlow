@@ -219,12 +219,12 @@ header p {
    Services Section
 ================================ */
 .section-label {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: blue;
-    margin-bottom: 8px;
+  color: #2563eb;
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 10px;
 }
 .section
 {
@@ -235,12 +235,14 @@ header p {
   text-align: center;
   margin-top: 60px;
 }
+.ic-amber {
+    background: linear-gradient(135deg, #f5a623, #d97706);
+}
 .section-title {
-    font-size: 32px;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-   
-    margin-bottom: 12px;
+  font-size: 36px;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 40px;
 }
 .services-container {
   
@@ -313,30 +315,33 @@ header p {
   
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
+    gap: 24px;
 
 }
 .tier-card {
-    border-radius: 30px;
-    padding: 14px 16px;
-    border-left: 4px solid;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  transition: 0.3s ease;
+  border-left: 5px solid transparent;
 }
 .tier-T1 {
-    background: #fef2f2;
-    border-color: red;
+  border-left: 5px solid #ef4444;
+  background: #fef2f2;
 }
 
 .tier-T2 {
-    background: #fffbeb;
-    border-color: yellow;
+  border-left: 5px solid #f59e0b;
+  background: #fffbeb;
 }
 .tier-T3 {
-    background: #f0fdf4;
-    border-color: green;
+  border-left: 5px solid #10b981;
+  background: #ecfdf5;
 }
 .tier-T4 {
-    background: #eff6ff;
-    border-color: blue;
+  border-left: 5px solid #3b82f6;
+  background: #eff6ff;
 }
 /*Contact Us*/
 

@@ -106,33 +106,23 @@ if (!localStorage.getItem("users")) {
                         <input type="text" placeholder="6-digit PIN" required>
                     </div>
 
-                    <div class="form-group">
-                        <label>Household Size</label>
-                        <input type="number" placeholder="No. of members" required>
-                    </div>
-                </div>
-                <div class="form-group full">
-                        <label>Ration Card Number</label>
-                        <input type="text" placeholder="TN-12-1234-567890" required>
-                    </div>
 
-                <div class="form-group full">
-                    <label for="category">Ration Card Type</label>
-                    <select required>
-                        <option value="AAY">AAY (Antyodaya Anna Yojana)</option>
-                        <option value="PHH">PHH (Priority Household)</option>
-                        <option value="NPHH">NPHH (Non-Priority Household)</option>
-                    </select>
                 </div>
+                <div class="form-group full">
+  <label>House No / Building Name</label>
+  <input type="text" placeholder="e.g. 12A, Lakshmi Apartments" required id="house">
+</div>
 
-                <div class="form-group full">
-                    <label>Category</label>
-                    <select required>
-                        <option>General</option>
-                        <option>OBC</option>
-                        <option>SC/ST</option>
-                    </select>
-                </div>
+<div class="form-group full">
+  <label>Street / Area / Locality</label>
+  <input type="text" placeholder="e.g. Anna Nagar, 2nd Street" required id="street">
+</div>
+
+<div class="form-group full">
+  <label>Landmark (Optional)</label>
+  <input type="text" placeholder="Near temple / school / bus stop" id="landmark">
+</div>
+
 
                 <div class="form-group full">
                     <label>Account Type</label>

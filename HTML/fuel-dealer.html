@@ -1,108 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Fuel Dealer Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <link rel="stylesheet" href="dealer.css">
+  <link rel="stylesheet" href="../CSS/style.css">
+  <link rel="stylesheet" href="../CSS/dealer.css">
 </head>
 
 <body>
 
-<!-- ===== TOP NAV ===== -->
-<div class="dash-nav">
-  <div class="logo">
-    <span>RF</span> <span>ResFlow</span>
-  </div>
-  <div class="nav-right">
-    <h2>Fuel Dealer Dashboard</h2>
-    <button class="home-btn" onclick="logout()">← Logout</button>
-  </div>
-</div>
-
-<!-- ===== WELCOME ===== -->
-<section class="welcome">
-  <h2 id="fuelDealerWelcome"></h2>
-  <p>Manage petrol & diesel distribution requests</p>
-</section>
-
-<!-- ===== INCOMING ORDERS ===== -->
-<section class="dash-section">
-  <h3>Fuel Booking Queue (FIFO)</h3>
-
-  <div class="table-card">
-    <table>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>User Name</th>
-          <th>User ID</th>
-          <th>Fuel Type</th>
-          <th>Litres</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody id="fuelTable"></tbody>
-    </table>
-  </div>
-</section>
-
-<!-- ===== FOOTER ===== -->
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-bottom">
-      <div class="footer-govt">
-        © 2026 Government of India. Ministry of Petroleum & Natural Gas.
-      </div>
+  <!-- ===== TOP NAV ===== -->
+  <div class="dash-nav">
+    <h2 class="nav-logo"><span><img src="../Images/waves.png" alt="ResFlow icon" class="res-icon"> </span><span>ResFlow</span></h2>
+    <div class="nav-right">
+      <h2>Fuel Dealer Dashboard</h2>
+      <button class="home-btn" onclick="logout()">← Logout</button>
     </div>
   </div>
-</footer>
 
-<script>
-/* =========================
-   AUTH CHECK
-========================= */
-const user = JSON.parse(localStorage.getItem("currentUser"));
+  <!-- ===== WELCOME ===== -->
+  <section class="welcome">
+    <h2 id="fuelDealerWelcome"></h2>
+    <p>Manage petrol & diesel distribution requests</p>
+  </section>
 
-if (!user || user.type !== "dealer_fuel") {
-  window.location.href = "login.html";
-}
+  <!-- ===== INCOMING ORDERS ===== -->
+  <section class="dash-section">
+    <h3>Fuel Booking Queue (FIFO)</h3>
 
-document.getElementById("fuelDealerWelcome").innerText =
-  `Welcome ${user.name} (ID: ${user.id})`;
+    <div class="table-card">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>User Name</th>
+            <th>User ID</th>
+            <th>Fuel Type</th>
+            <th>Litres</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="fuelTable"></tbody>
+      </table>
+    </div>
+  </section>
 
-/* =========================
-   LOAD BOOKINGS
-========================= */
-const bookings = JSON.parse(localStorage.getItem("bookings")) || [];
-const table = document.getElementById("fuelTable");
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand">ResFlow</div>
+          <div class="footer-brand-sub">Unified Essential Resource Distribution &amp; Crisis Management Platform. An
+            initiative under the Ministry of Petroleum &amp; Natural Gas, Government of India.</div>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="#">LPG Distribution</a>
+          <a href="#">Petrol &amp; Diesel</a>
+          <a href="#">Medical Oxygen</a>
+          <a href="#">Emergency Reserves</a>
+        </div>
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <a href="#">Citizen Portal</a>
+          <a href="#">Dealer Portal</a>
+          <a href="#">Hospital Access</a>
+          <a href="#">Admin Console</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">RTI</a>
+          <a href="#">Accessibility</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-govt">© 2026 Government of India. Ministry of Petroleum &amp; Natural Gas. All rights
+          reserved.</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.25);">Version 2.1.0 | NIC Hosted | WCAG 2.1 AA Compliant
+        </div>
+      </div>
+    </div>
+  </footer>
 
-/* FIFO — no sorting */
-bookings.forEach((b, index) => {
-  const row = document.createElement("tr");
+  <script src="../JavaScript/fuel-dealer.js">
 
-  row.innerHTML = `
-    <td>${index + 1}</td>
-    <td>${b.userName}</td>
-    <td>${b.userId}</td>
-
-    <td>${b.fuelType}</td>
-    <td>${b.litres}</td>
-    <td>${b.status}</td>
-  `;
-
-  table.appendChild(row);
-});
-
-/* =========================
-   LOGOUT
-========================= */
-function logout() {
-  localStorage.removeItem("currentUser");
-  window.location.href = "login.html";
-}
-</script>
+  </script>
 
 </body>
+
 </html>

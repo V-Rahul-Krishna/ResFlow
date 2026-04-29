@@ -7,7 +7,7 @@
     
     <title>ResFlow - Register</title>
     
-    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="../CSS/register.css">
 </head>
 <body>
   <script>
@@ -17,7 +17,7 @@ if (!localStorage.getItem("users")) {
 </script>
 
     <header class="navbar">
-        <h2 class="nav-logo"><span><img src="./Images/waves.png" alt="ResFlow icon" class="res-icon"> </span><span>ResFlow</span></h2>
+        <h2 class="nav-logo"><span><img src="../Images/waves.png" alt="ResFlow icon" class="res-icon"> </span><span>ResFlow</span></h2>
         <a href="./index.html"><button class="home-btn">← Home</button></a>
     </header>
 
@@ -167,44 +167,8 @@ if (!localStorage.getItem("users")) {
             </form>
         </div>
     </div>
-<script>
-function register() {
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+<script src="../JavaScript/register.js">
 
-  const type = document.querySelector('input[name="atype"]:checked');
-  if (!type) {
-    alert("Select account type");
-    return;
-  }
-
-  const user = {
-    id: "RF" + Math.floor(1000 + Math.random() * 9000),
-    name,
-    email,
-    password,
-    type: type.value
-  };
-
-  // 🔹 Get existing users or empty array
-  const users = JSON.parse(localStorage.getItem("users")) || [];
-
-  // 🔹 Prevent duplicate email
-  const exists = users.some(u => u.email === email);
-  if (exists) {
-    alert("User already registered!");
-    return;
-  }
-
-  users.push(user);
-
-  // 🔹 Save back
-  localStorage.setItem("users", JSON.stringify(users));
-
-  alert("Registration successful!");
-  window.location.href = "login.html";
-}
 </script></body>
 </html>
 

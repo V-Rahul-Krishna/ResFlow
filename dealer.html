@@ -76,14 +76,14 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <div class="footer-govt">© 2024 Government of India. Ministry of Petroleum &amp; Natural Gas. All rights reserved.</div>
+        <div class="footer-govt">© 2026 Government of India. Ministry of Petroleum &amp; Natural Gas. All rights reserved.</div>
         <div style="font-size:12px;color:rgba(255,255,255,0.25);">Version 2.1.0 | NIC Hosted | WCAG 2.1 AA Compliant</div>
       </div>
     </div>
   </footer>
  
 <script>
-  const user = JSON.parse(localStorage.getItem("userData"));
+  const user = JSON.parse(localStorage.getItem("currentUser"));
 
 if (!user || user.type !== "dealer") {
   window.location.href = "login.html";
@@ -91,19 +91,19 @@ if (!user || user.type !== "dealer") {
 
 document.getElementById("dealerWelcome").innerText =
   `Welcome ${user.name} (ID: ${user.id})`;
-const bookings = JSON.parse(localStorage.getItem("lpgBookings")) || [];
+const bookings = JSON.parse(localStorage.getItem("bookings")) || [];
 const table = document.getElementById("dealerTable");
 
 bookings.forEach((b, index) => {
   const row = document.createElement("tr");
 
   row.innerHTML = `
-    <td>${index + 1}</td>
-    <td>${b.citizenName}</td>
-    <td>${b.citizenId}</td>
-    <td>${b.income}</td>
-    <td>${b.members}</td>
-  `;
+  <td>${index + 1}</td>
+  <td>${b.userName}</td>
+  <td>${b.userId}</td>
+  <td>${b.income}</td>
+  <td>${b.familyMembers}</td>
+`;
 
   table.appendChild(row);
 });

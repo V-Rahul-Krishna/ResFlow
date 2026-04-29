@@ -32,11 +32,62 @@
 
     <h3>Book LPG Cylinder</h3>
 
-<form >
-  <input type="number" id="income" placeholder="Family Income" required><br><br>
-  <input type="number" id="members" placeholder="Family Members" required><br><br>
+<form id="lpgForm">
 
-  <button type="button" class="book-btn" onclick="bookLPG()">Book LPG</button>
+  <!-- Family Income -->
+  <div class="form-group">
+    <label class="form-label">Family Annual Income (₹)</label>
+    <input
+      type="number"
+      id="income"
+      class="form-input"
+      placeholder="Enter income (e.g. 120000)"
+      required
+    />
+  </div>
+
+  <!-- Family Members -->
+  <div class="form-group">
+    <label class="form-label">Number of Family Members</label>
+    <input
+      type="number"
+      id="members"
+      class="form-input"
+      placeholder="Enter members (e.g. 4)"
+      required
+    />
+  </div>
+
+  <!-- Ration Card Number -->
+  <div class="form-group">
+    <label class="form-label">Ration Card Number</label>
+    <input
+      type="text"
+      id="rationNumber"
+      class="form-input"
+      placeholder="TN-12-1234-567890"
+      required
+    />
+  </div>
+
+  <!-- Ration Card Type -->
+  <div class="form-group">
+    <label class="form-label">Ration Card Type</label>
+    <select id="rationType" class="form-input" required>
+      <option value="">-- Select Card Type --</option>
+      <option value="AAY">AAY (Antyodaya Anna Yojana)</option>
+      <option value="PHH">PHH (Priority Household)</option>
+      <option value="APL">APL (Above Poverty Line)</option>
+      <option value="BPL">BPL (Below Poverty Line)</option>
+      <option value="AY">AY (Annapurna Yojana)</option>
+    </select>
+  </div>
+
+  <!-- Button -->
+  <button type="button" class="book-btn" onclick="bookLPG()">
+    🔥 Book LPG
+  </button>
+
 </form>
 
 <p id="result"></p></div>

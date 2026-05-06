@@ -3,11 +3,7 @@ document.getElementById("signin").addEventListener("click", function () {
   const email = document.getElementById("loginEmail").value.trim();
   const password = document.getElementById("loginPassword").value.trim();
   const userType = document.querySelector('input[name="atype"]:checked');
-
-  console.log("INPUT:", email, password, userType?.value);
-
   const users = JSON.parse(localStorage.getItem("users"));
-  console.log("USERS IN STORAGE:", users);
 
   if (!users || users.length === 0) {
     console.log("❌ USERS EMPTY OR MISSING");
@@ -20,9 +16,6 @@ document.getElementById("signin").addEventListener("click", function () {
       u.password === password &&
       u.type === userType.value
   );
-
-  console.log("MATCHED USER:", matchedUser);
-
   if (!matchedUser) {
     alert("❌ INVALID CREDENTIALS");
     return;

@@ -27,7 +27,7 @@ bookings.forEach((b, index) => {
 
     <td>${b.fuelType}</td>
     <td>${b.litres}</td>
-    <td>${b.status}</td>
+
   `;
 
   table.appendChild(row);

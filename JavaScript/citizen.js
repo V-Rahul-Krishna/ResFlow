@@ -41,21 +41,23 @@ const priority = (members * 2) + incomeWeight;
 
   const booking = {
   bookingId: "BKG" + Math.floor(1000 + Math.random() * 9000),
+  type: "lpg",              // ← REQUIRED
   userId: currentUser.id,
   userName: currentUser.name,
-
   rationCardNumber: rationNo,
-  rationCardType: rationType, // PHH / AAY / NPHH
-
+  rationCardType: rationType,
   priority,
   status: "Pending",
   bookingDate: new Date().toISOString().split("T")[0],
   expectedDate: getExpectedDate(priority)
 };
 
-  bookings.push(booking);
+  const exists = bookings.some(b => b.bookingId === booking.bookingId);
 
+if (!exists) {
+  bookings.push(booking);
   localStorage.setItem("bookings", JSON.stringify(bookings));
+}
 
   const result = document.getElementById("result");
 
